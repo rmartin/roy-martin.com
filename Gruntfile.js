@@ -259,11 +259,10 @@ module.exports = function (grunt) {
             heroku: {
               options: {
                 remote: 'git@heroku.com:roy-martin.git',
-                branch: 'master',
-                tag: pkg.version
+                branch: 'master'
               }
             }
-          }
+        }
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -342,9 +341,9 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.registerTask('deploy', [
+    grunt.registerTask('deploy', function(target){
         if (target === 'heroku') {
-            return grunt.task.run(['build', 'buildcontrol:heroku']);
+            return grunt.task.run(['clean:dist', 'build', 'buildcontrol']);
         }
-    ]);
+    });
 };

@@ -19,6 +19,11 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
+    grunt.loadNpmTasks('grunt-libsass');
+
+
+
+
     // configurable paths
     var yeomanConfig = {
         app: 'app',
@@ -262,7 +267,17 @@ module.exports = function (grunt) {
                 branch: 'master'
               }
             }
-        }
+        },
+          libsass: {
+              dev : {
+                  src: '<%= yeoman.app %>/styles/*.scss',
+                  dest: '.tmp/styles/main.css',
+              },
+              build : {
+                  src: '<%= yeoman.app %>/styles/*.scss',
+                  dest: '<%= yeoman.dist %>/styles/main.css',
+              }
+          }
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -293,6 +308,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
+            'libsass:dev',
             'jst',
             'connect:livereload',
             'open:server',
@@ -322,6 +338,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
+        'libsass:dev',
         'jst',
         'useminPrepare',
         'requirejs',

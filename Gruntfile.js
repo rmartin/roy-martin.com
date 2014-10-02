@@ -254,7 +254,7 @@ module.exports = function (grunt) {
                     ]
                 }
             }
-        }, 
+        },
         buildcontrol: {
             options: {
               dir: 'dist',
@@ -340,7 +340,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
-        'libsass:dev',
+        'libsass',
         'jst',
         'useminPrepare',
         'requirejs',

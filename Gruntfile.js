@@ -21,9 +21,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-libsass');
 
-
-
-
     // configurable paths
     var yeomanConfig = {
         app: 'app',
@@ -59,7 +56,11 @@ module.exports = function (grunt) {
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
-            }
+            },
+            sass: {
+                files: '<%= yeoman.app %>/styles/**/*.scss',
+                tasks: ['libsass']
+              }
         },
         connect: {
             options: {
@@ -268,16 +269,17 @@ module.exports = function (grunt) {
               }
             }
         },
-          libsass: {
-              dev : {
-                  src: '<%= yeoman.app %>/styles/*.scss',
-                  dest: '.tmp/styles/main.css',
-              },
-              build : {
-                  src: '<%= yeoman.app %>/styles/*.scss',
-                  dest: '<%= yeoman.dist %>/styles/main.css',
-              }
-          }
+        libsass: {
+            options: {
+                outputStyle: 'extended'
+            },
+            files: {
+            expand: true,
+            cwd: '<%= yeoman.app %>/styles',
+            src: ['**/*.scss'],
+            dest: '.tmp/styles/',
+            ext: '.css'            }
+        }
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -308,7 +310,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
-            'libsass:dev',
+            'libsass',
             'jst',
             'connect:livereload',
             'open:server',

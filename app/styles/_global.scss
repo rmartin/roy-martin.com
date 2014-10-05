@@ -42,25 +42,6 @@ a:hover, a:visited{
     }
 }
 
-.off-canvas-wrap{
-    .inner-wrap{
-        padding: 0px 100px;
-        // transition: padding 1s;
-    }
-
-    &.move-right{
-        .inner-wrap{
-            //      padding: 0px 0px;
-        }
-    }
-}
-
-
-
-
-
-
-
 .tab-bar {
 
     // border-bottom: solid 1px #888888;
@@ -92,19 +73,22 @@ a:hover, a:visited{
     box-shadow: none;
 }
 
-.left-off-canvas-menu{
+.right-off-canvas-menu{
     height: 1400px;
     background-color: #fafafa;
+    padding-top: 1em;
 
     ul li a {
-        color: #888888;
-        border-bottom: 0 solid transparent;
+        color: #5e5e5e;
         font-family: "aviano-future";
+        border-bottom: 0 solid transparent;
     }
 
-    ul.off-canvas-list li a:hover{
-        background-color: #fafafa;
-        color: #000;
+    i{
+        float: left;
+        font-size: 1.125rem;
+        line-height: 1.7rem;
+        padding: 0.66667rem;
     }
 }
 
@@ -129,4 +113,13 @@ a:hover, a:visited{
 
 .left{
     float: left
+}
+
+
+@media only screen and (min-width: 64.063em) {
+    .off-canvas-wrap{
+        .inner-wrap{
+            padding: 0px 100px;
+        }
+    }
 }

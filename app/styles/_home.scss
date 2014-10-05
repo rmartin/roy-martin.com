@@ -4,6 +4,10 @@
 .home-overview{
     padding: 2em;
 
+    .home-overview-thoughts, .home-overview-experiments, .home-overview-about{
+        margin: 0 0 2em 0;
+    }
+
     .home-overview-bubble{
         @include circle(6rem, #cccccc);
         float: right;
@@ -26,5 +30,13 @@
     }
 
     .home-overview-summary{
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .home-overview{
+        .home-overview-thoughts, .home-overview-experiments, .home-overview-about {
+            margin: 0 0 0 0;
+        }
     }
 }

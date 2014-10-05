@@ -43,8 +43,6 @@ a:hover, a:visited{
 }
 
 .tab-bar {
-
-    // border-bottom: solid 1px #888888;
     margin: 1em 0 539px 0;
     background-color: transparent;
     color: #FFF;
@@ -95,20 +93,6 @@ a:hover, a:visited{
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;
-}
-
-.roy-martin-header{
-
-    .flip-horizontal{
-        -webkit-transform:rotateY(180deg);
-        -moz-transform:rotateY(180deg);
-        -o-transform:rotateY(180deg);
-        -ms-transform:rotateY(180deg);
-    }
-}
-
-.roy-martin-header::after{
-    clear: both;
 }
 
 .left{

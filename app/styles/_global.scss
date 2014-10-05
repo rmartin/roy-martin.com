@@ -1,0 +1,132 @@
+body {
+    background: #fafafa;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td, a{
+    font-family: "futura-pt";
+    font-size: 1.125rem;
+    color: #5e5e5e;
+}
+
+a:hover, a:visited{
+    color: #5e5e5e;
+    text-decoration: underline;
+}
+
+.header-font {
+    font-family: "aviano-future";
+}
+
+.center-text{
+    text-align: center;
+}
+
+.main-wrapper{
+    width: 100%;
+}
+
+.headshot{
+    background: url('/images/headshot.jpg') no-repeat 65% center;
+    background-size: cover;
+    content: ' ';
+    height: 600px;
+    width: 100%;
+    position: absolute;
+}
+
+.left-off-canvas-menu{
+    padding-top: 50px;
+
+    a{
+        text-align: center
+    }
+}
+
+.off-canvas-wrap{
+    .inner-wrap{
+        padding: 0px 100px;
+        // transition: padding 1s;
+    }
+
+    &.move-right{
+        .inner-wrap{
+            //      padding: 0px 0px;
+        }
+    }
+}
+
+
+
+
+
+
+
+.tab-bar {
+
+    // border-bottom: solid 1px #888888;
+    margin: 1em 0 539px 0;
+    background-color: transparent;
+    color: #FFF;
+
+    h1{
+        text-align: right;
+        color: #FFF;
+        font-family: "aviano-future";
+    }
+
+    .menu-icon{
+        color: #FFF;
+
+        span::after{
+            box-shadow: 0 0 0 1px #FFF, 0 7px 0 1px #FFF, 0 14px 0 1px #FFF;
+            left: 0;
+        }
+    }
+
+    .left-small{
+        border-right: solid 0px transparent;
+    }
+}
+
+.move-right .exit-off-canvas{
+    box-shadow: none;
+}
+
+.left-off-canvas-menu{
+    height: 1400px;
+    background-color: #fafafa;
+
+    ul li a {
+        color: #888888;
+        border-bottom: 0 solid transparent;
+        font-family: "aviano-future";
+    }
+
+    ul.off-canvas-list li a:hover{
+        background-color: #fafafa;
+        color: #000;
+    }
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+}
+
+.roy-martin-header{
+
+    .flip-horizontal{
+        -webkit-transform:rotateY(180deg);
+        -moz-transform:rotateY(180deg);
+        -o-transform:rotateY(180deg);
+        -ms-transform:rotateY(180deg);
+    }
+}
+
+.roy-martin-header::after{
+    clear: both;
+}
+
+.left{
+    float: left
+}

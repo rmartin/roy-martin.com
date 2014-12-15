@@ -4,11 +4,10 @@
 require.config({
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
-        backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
-        handlebars: '../bower_components/handlebars/handlebars.amd.min',
-        foundation: '../bower_components/foundation/js/foundation.min',
-        threejs: '../bower_components/threejs/build/three.min'
+        backbone: '../bower_components/backbone/backbone',
+        handlebars: '../bower_components/handlebars/handlebars.min',
+        foundation: '../bower_components/foundation/js/foundation.min'
     },
     shim: {
         jquery: {
@@ -18,8 +17,13 @@ require.config({
         foundation: {
             deps: ['jquery']
         },
+        underscore: {
+            deps: [],
+            exports: '_'
+        },
         backbone: {
-            deps: ['jquery', 'underscore']
+            deps: ['jquery', 'underscore'],
+            exports: 'backbone'
         },
         handlebars: {
             exports: 'Handlebars'
@@ -28,10 +32,16 @@ require.config({
 });
 
 require([
+    'jquery',
     'backbone',
     'foundation',
-    'threejs'
-], function (Backbone) {
+    'routes/Home',
+    'routes/About'
+], function ($, Backbone, foundation, HomeRouter, AboutRouter) {
+    var homeRouter = new HomeRouter();
+    var aboutRouter = new AboutRouter();
+
+    //start backbone and foundation
     Backbone.history.start();
     $(document).foundation();
 });

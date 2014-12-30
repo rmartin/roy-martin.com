@@ -112,7 +112,13 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dist: ['.tmp', '<%= yeoman.dist %>/*'],
+            dist: ['.tmp', '<%= yeoman.dist %>/*',
+            '!<%= yeoman.dist %>/.git{,*/}*',
+            '!<%= yeoman.dist %>/Procfile',
+            '!<%= yeoman.dist %>/package.json',
+            '!<%= yeoman.dist %>/web.js',
+            '!<%= yeoman.dist %>/node_modules'
+            ],
             server: '.tmp'
         },
         jshint: {
@@ -476,4 +482,6 @@ module.exports = function (grunt) {
             'test',
             'build'
             ]);
+
+            grunt.registerTask('deploy', ['buildcontrol']);
         };

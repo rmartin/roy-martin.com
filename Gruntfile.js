@@ -357,6 +357,20 @@ module.exports = function (grunt) {
                 src: '<%= yeoman.dist %>/styles/main.css', // -> src/css/file1.css, src/css/file2.css
                 dest: '<%= yeoman.dist %>/styles/main.css' // -> dest/css/file1.css, dest/css/file2.css
             }
+        },
+        buildcontrol: {
+            options: {
+                dir: 'dist',
+                commit: true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+            },
+            heroku: {
+                options: {
+                    remote: 'git@heroku.com:roy-martin.git',
+                    branch: 'master'
+                }
+            }
         }
     });
 

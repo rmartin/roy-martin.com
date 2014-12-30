@@ -241,7 +241,8 @@ module.exports = function (grunt) {
                     'scripts/social/*.js',
                     'assets/{,*/}*.*',
                     '*.php',
-                    'includes/**/*'
+                    'includes/**/*',
+                    'bower_components/foundation-icon-fonts/*.*'
                     ]
                 }]
             },

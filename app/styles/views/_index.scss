@@ -1,30 +1,16 @@
-body.indexView{
+body.indexView {
 
-    .background-image{
-        background: url('/images/headshot.jpg') no-repeat 65% center;
+    .background-image {
+        background: url("/images/headshot.jpg") no-repeat 65% center;
         background-size: cover;
         content: ' ';
         height: 600px;
         width: 100%;
         position: absolute;
+
     }
 
-    .main-content{
-        padding: 2em;
-
-        .index-overview-thoughts, .index-overview-experiments, .index-overview-about{
-            margin: 0 0 2em 0;
-        }
-
-        .index-overview-summary{
-        }
-    }
 }
-
 @media only screen and (min-width: 64.063em) {
-    body.indexView{
-        .index-overview-thoughts, .index-overview-experiments, .index-overview-about {
-            margin: 0 0 0 0;
-        }
-    }
+
 }

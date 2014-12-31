@@ -1,73 +1,94 @@
 body {
     background: #fafafa;
-}
 
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td, a{
+}
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td,
+a {
     font-family: "futura-pt";
     font-size: 1.125rem;
     color: #5e5e5e;
-}
 
-a:hover, a:visited{
+}
+a:hover,
+a:visited {
     color: #5e5e5e;
     text-decoration: underline;
-}
 
+}
 .header-font {
     font-family: "aviano-future";
-}
 
-.center-text{
+}
+.center-text {
     text-align: center;
-}
 
-.main-wrapper{
+}
+.main-wrapper {
     width: 100%;
-}
 
-.left-off-canvas-menu{
+}
+.left-off-canvas-menu {
     padding-top: 50px;
 
-    a{
-        text-align: center
+    a {
+        text-align: center;
     }
-}
 
+}
 .tab-bar {
-    margin: 1em 0 539px 0;
+    margin: 1em 0 539px;
     background-color: transparent;
-    color: #FFF;
+    color: #fff;
     z-index: 2;
 
-    h1{
+    h1 {
         text-align: right;
-        color: #FFF;
+        color: #fff;
         font-family: "aviano-future";
+
     }
+    .menu-icon {
+        color: #fff;
 
-    .menu-icon{
-        color: #FFF;
-
-        span::after{
-            box-shadow: 0 0 0 1px #FFF, 0 7px 0 1px #FFF, 0 14px 0 1px #FFF;
+        span::after {
+            box-shadow: 0 0 0 1px #FFF, 0 7px 0 1px #FFF, 0 14px 0 1px #fff;
             left: 0;
         }
-    }
 
-    .left-small{
-        border-right: solid 0px transparent;
     }
+    .left-small {
+        border-right: solid 0 transparent;
 
-    .left, .right{
+    }
+    .left,
+    .right {
         z-index: 2;
     }
-}
 
-.move-right .exit-off-canvas{
+}
+.move-right .exit-off-canvas {
     box-shadow: none;
-}
 
-.right-off-canvas-menu{
+}
+.right-off-canvas-menu {
     height: 1400px;
     background-color: #fafafa;
     padding-top: 1em;
@@ -77,65 +98,71 @@ a:hover, a:visited{
         color: #5e5e5e;
         font-family: "aviano-future";
         border-bottom: 0 solid transparent;
-    }
 
-    i{
+    }
+    i {
         float: left;
         font-size: 1.125rem;
         line-height: 1.7rem;
         padding: 0.66667rem;
     }
-}
 
+}
 .hero-unit {
-    margin: 50px auto 0 auto;
+    margin: 50px auto 0;
     width: 300px;
-}
 
-.left{
-    float: left
 }
-
-.header-title-container{
+.left {
+    float: left;
+}
+.header-title-container {
     transform: translate3d(0, 25rem, 0);
-    position:absolute;
-    left:0;
-    right:0;
-    margin-left:auto;
-    margin-right:auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 
-    h2{
+    h2 {
         font-size: 3rem;
         color: #fafafa;
         font-family: "aviano-future";
-    }
 
-    h4{
+    }
+    h4 {
         color: #fafafa;
     }
+
 }
 
-#header-attribution{
+.main-content {
+    padding: 2em 0;
+}
+
+#header-attribution {
     transform: translate3d(0, 35rem, 0);
-    position:absolute;
-    right:130px;
+    position: absolute;
+    right: 130px;
     color: #fafafa;
     z-index: 2;
-    a{
+    a {
         color: #fafafa;
-
     }
-}
 
-.inner-wrap{
+}
+.inner-wrap {
     z-index: 1;
+
 }
+.content-circle-container {
+    margin: 0 0 2em;
 
-
+}
 @media only screen and (min-width: 64.063em) {
-    .off-canvas-wrap{
-        .inner-wrap{
-            padding: 0px 100px;
+    .off-canvas-wrap {
+        .inner-wrap {
+            padding: 0 100px;
         }
     }
 }

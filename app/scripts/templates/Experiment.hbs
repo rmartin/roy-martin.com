@@ -1,16 +1,32 @@
-<div class="row ">
-    <div class="small-12 columns">
-        <h1 class="index-overview-header header-font">Code Snippets (CodePen.io/roymartin)</h1>
+<div class="row">
+    <div class="small-12 large-4 columns">
+        <div class="content-circle-container sub-header">
+            <div class="row collapse">
+                <div class="small-3 columns">
+                    <div class="content-circle left">
+                        <i class="fi-widget large"></i>
+                    </div>
+                </div>
+                <div class="small-9 columns">
+                    <div class="content-circle-text">
+                        <h5 class="index-overview-header header-font">Code Snippets</h5>
+                        <p class="index-overview-summary">
+                            Code from <a href="http://codepen.io/roymartin/" target="_blank">codepen.io/roymartin</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="row">
+<div class="row ">
     <div class="small-12 columns">
-        <div class="row">
+        <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
             {{#each .}}
-                <div class="small-4 columns">
+                <li>
                     {{{content}}}
-                </div>
+                </li>
             {{/each}}
-        </div>
+        </ul>
     </div>
 </div>

@@ -1,12 +1,11 @@
-body.experimentView{
+body.experimentView {
 
-    .background-image{
-        background: url('/images/experiments.jpg') no-repeat 65% center;
+    .background-image {
+        background: url("/images/experiments.jpg") no-repeat 65% center;
         background-size: cover;
         content: ' ';
         height: 600px;
         width: 100%;
         position: absolute;
     }
-
 }

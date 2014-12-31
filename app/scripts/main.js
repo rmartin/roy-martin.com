@@ -35,11 +35,13 @@ require([
     'jquery',
     'backbone',
     'foundation',
-    'routes/Home',
-    'routes/About'
-], function ($, Backbone, foundation, HomeRouter, AboutRouter) {
-    var homeRouter = new HomeRouter();
+    'routes/Index',
+    'routes/About',
+    'routes/Experiment'
+], function ($, Backbone, foundation, IndexRouter, AboutRouter, ExperimentRouter) {
+    var indexRouter = new IndexRouter();
     var aboutRouter = new AboutRouter();
+    var experimentRouter = new ExperimentRouter();
 
     //start backbone and foundation
     Backbone.history.start();

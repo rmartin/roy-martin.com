@@ -1,10 +1,30 @@
 // Comment out this import if you are customizing you imports below
 $row-width: 72.500em;
+/**
+----------------------------------------------------------------------------------------
+Vendor level styling
+----------------------------------------------------------------------------------------
+*/
 $fi-path: "../bower_components/foundation-icon-fonts";
-
 @import "../bower_components/foundation/scss/normalize";
 @import "../bower_components/foundation/scss/foundation";
 @import "../bower_components/foundation-icon-fonts/_foundation-icons";
-@import "_mixin";
-@import "_global";
-@import "_home";
+/**
+----------------------------------------------------------------------------------------
+Base level styling
+----------------------------------------------------------------------------------------
+*/
+@import "base/reset";
+/**
+----------------------------------------------------------------------------------------
+Component level styling
+----------------------------------------------------------------------------------------
+*/
+@import "components/circle";
+/**
+----------------------------------------------------------------------------------------
+Page level styling
+----------------------------------------------------------------------------------------
+*/
+@import "views/index";
+@import "views/experiment";

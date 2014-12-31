@@ -9,7 +9,7 @@ define([
     'use strict';
 
     var AboutView = Backbone.View.extend({
-        template: JST['app/scripts/templates/About.hbs'],
+        template: JST['app/scripts/templates/about.hbs'],
 
         tagName: 'div',
 

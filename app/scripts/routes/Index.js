@@ -1,7 +1,7 @@
 define([
     'jquery',
     'backbone',
-    'views/Index'
+    'views/index'
 ], function ($, Backbone,IndexView) {
     'use strict';
 

@@ -96,6 +96,41 @@ a:hover, a:visited{
     float: left
 }
 
+.header-title-container{
+    transform: translate3d(0, 25rem, 0);
+    position:absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+
+    h2{
+        font-size: 3rem;
+        color: #fafafa;
+        font-family: "aviano-future";
+    }
+
+    h4{
+        color: #fafafa;
+    }
+}
+
+#header-attribution{
+    transform: translate3d(0, 35rem, 0);
+    position:absolute;
+    right:130px;
+    color: #fafafa;
+    z-index: 2;
+    a{
+        color: #fafafa;
+
+    }
+}
+
+.inner-wrap{
+    z-index: 1;
+}
+
 
 @media only screen and (min-width: 64.063em) {
     .off-canvas-wrap{

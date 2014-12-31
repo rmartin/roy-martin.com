@@ -1,8 +1,9 @@
 define([
     'jquery',
     'backbone',
-    'views/Experiment'
-], function($, Backbone, ExperimentView) {
+    'collections/codepen',
+    'views/experiment'
+], function($, Backbone, CodeCollection, ExperimentView) {
     'use strict';
 
     var HomeRouter = Backbone.Router.extend({
@@ -15,7 +16,8 @@ define([
         },
 
         experiment: function() {
-            var experimentView = new ExperimentView();
+            var codeCollection = new CodeCollection();
+            var experimentView = new ExperimentView({collection: codeCollection});
         }
     });
 

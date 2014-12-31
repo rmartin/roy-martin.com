@@ -6,3 +6,24 @@
     -moz-border-radius: $width/2;
     border-radius: $width/2;
 }
+
+.content-circle{
+    @include circle(6rem, #cccccc);
+    float: right;
+    margin: 0.5em 0;
+
+    i{
+        font-size: 2.5em;
+        line-height: 2.25em;
+        margin: 0 0 0 0.65em;
+
+        &.fi-widget{
+            margin: 0 0 0 0.66em;
+        }
+
+        &.fi-torso-business{
+            margin: 0 0 0 0.75em;
+        }
+    }
+
+}

@@ -35,9 +35,9 @@ require([
     'jquery',
     'backbone',
     'foundation',
-    'routes/Index',
-    'routes/About',
-    'routes/Experiment'
+    'routes/index',
+    'routes/about',
+    'routes/experiment'
 ], function ($, Backbone, foundation, IndexRouter, AboutRouter, ExperimentRouter) {
     var indexRouter = new IndexRouter();
     var aboutRouter = new AboutRouter();

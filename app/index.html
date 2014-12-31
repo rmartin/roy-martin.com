@@ -17,8 +17,19 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
-<div class="main-wrapper">
+<section class="header-container">
+    <div class="background-image"></div>
+    <div class="row header-title-container">
+        <div class="small-0 medium-4 columns">&nbsp;</div>
+        <div class="small-12 medium-6 columns">
+            <h2 id="header-title"></h2>
+            <h4 id="header-sub-title"></h4>
+        </div>
+        <div class="small-0 medium-2 columns">&nbsp;</div>
+    </div>
+    <div id="header-attribution"></div>
+</section>
+<section class="main-wrapper">
     <div class="off-canvas-wrap" data-offcanvas>
         <div class="inner-wrap">
             <nav class="tab-bar">
@@ -32,12 +43,16 @@
             <aside class="right-off-canvas-menu">
                 <ul class="off-canvas-list">
                     <li>
+                        <i class="fi-home"></i>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
                         <i class="fi-megaphone"></i>
                         <a href="#">Thoughts</a>
                     </li>
                     <li>
                         <i class="fi-widget"></i>
-                        <a href="#">Experiments</a>
+                        <a href="#experiments">Experiments</a>
                     </li>
                     <li>
                         <i class="fi-torso-business"></i>
@@ -46,7 +61,6 @@
                 </ul>
             </aside>
         </div>
-
         <section class="main-content">
 
         </section>
@@ -54,7 +68,7 @@
         <a class="exit-off-canvas"></a>
 
     </div>
-</div>
+</section>
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -6,8 +6,10 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         underscore: '../bower_components/lodash/dist/lodash',
         backbone: '../bower_components/backbone/backbone',
+        marionette: '../bower_components/marionette/lib/backbone.marionette.min',
         handlebars: '../bower_components/handlebars/handlebars.min',
-        foundation: '../bower_components/foundation/js/foundation.min'
+        foundation: '../bower_components/foundation/js/foundation.min',
+        app: 'app'
     },
     shim: {
         jquery: {
@@ -23,7 +25,11 @@ require.config({
         },
         backbone: {
             deps: ['jquery', 'underscore'],
-            exports: 'backbone'
+            exports: 'Backbone'
+        },
+        marionette: {
+            deps: ['jquery', 'underscore', 'backbone'],
+            exports: 'Marionette'
         },
         handlebars: {
             exports: 'Handlebars'
@@ -32,18 +38,19 @@ require.config({
 });
 
 require([
-    'jquery',
-    'backbone',
+    'app',
     'foundation',
+    'controllers/index',
     'routes/index',
-    'routes/about',
-    'routes/experiment'
-], function ($, Backbone, foundation, IndexRouter, AboutRouter, ExperimentRouter) {
-    var indexRouter = new IndexRouter();
-    var aboutRouter = new AboutRouter();
-    var experimentRouter = new ExperimentRouter();
-
-    //start backbone and foundation
-    Backbone.history.start();
+], function(App, foundation, IndexController, IndexRoutes) {
+    //start foundation
     $(document).foundation();
+
+    //load the application
+    App.start();
+    App.startSubApp('IndexApp');
+    // App.module("IndexApp").start();
+
+
+
 });

@@ -1,23 +1,28 @@
-define([
-    'jquery',
-    'backbone',
-    'views/index'
-], function ($, Backbone,IndexView) {
-    'use strict';
+define(['app', 'controllers/index'], function(App, IndexController) {
+    // App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
-    var IndexRouter = Backbone.Router.extend({
-        initialize: function(){
+        var router = Marionette.AppRouter.extend({
+            appRoutes: {
+                '' : 'index'
+            }
+        });
 
-        },
+        var controller = Marionette.Controller.extend({
+            index: function() {
+                console.log('index controller');
+            }
+        });
 
-        routes: {
-            '' : 'index'
-        },
+        // IndexApp.addInitializer(function() {
 
-        index: function(){
-            var indexView = new IndexView();
-        }
-    });
 
-    return IndexRouter;
+            var indexController = new controller();
+            // indexController.index();
+            var router = new router({
+                controller: indexController
+            });
+            console.log(router);
+
+        // });
+    // });
 });

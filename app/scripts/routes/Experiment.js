@@ -1,25 +1,12 @@
-define([
-    'jquery',
-    'backbone',
-    'collections/codepen',
-    'views/experiment'
-], function($, Backbone, CodeCollection, ExperimentView) {
-    'use strict';
+define(['app', 'controllers/index'], function(App, IndexController) {
+    App.module('ExperimentApp', function(ExperimentApp, App, Backbone, Marionette, $, _) {
 
-    var HomeRouter = Backbone.Router.extend({
-        initialize: function() {
+        ExperimentApp.Router = Marionette.AppRouter.extend({
+            appRoutes: {
+                'experiments' : 'experiment'
+            }
+        });
 
-        },
-
-        routes: {
-            'experiments': 'experiment'
-        },
-
-        experiment: function() {
-            var codeCollection = new CodeCollection();
-            var experimentView = new ExperimentView({collection: codeCollection});
-        }
     });
-
-    return HomeRouter;
+    return App.ExperimentApp.Router;
 });

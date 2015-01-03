@@ -4,6 +4,7 @@ define(['app', 'views/index'], function(App, IndexView) {
         IndexApp.Controller = Marionette.Controller.extend({
             index: function() {
                 var indexView = new IndexView();
+                App.main.show(indexView);
             }
         });
     });

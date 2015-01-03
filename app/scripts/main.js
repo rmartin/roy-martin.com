@@ -42,13 +42,19 @@ require([
     'foundation',
     'controllers/index',
     'routes/index',
-], function(App, foundation, IndexController, IndexRoutes) {
+    'controllers/experiment',
+    'routes/experiment',
+], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes) {
     //start foundation
     $(document).foundation();
 
 
-    var controller = new IndexController();
-    var indexRoutes = new IndexRoutes({controller:controller});
+    var indexController = new IndexController();
+    var indexRoutes = new IndexRoutes({controller:indexController});
+
+    var experimentController = new ExperimentController();
+    var experimentRoutes = new ExperimentRoutes({controller:experimentController});
+
 
     //load the application
     App.start();

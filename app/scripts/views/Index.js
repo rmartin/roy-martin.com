@@ -1,29 +1,18 @@
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
-    'use strict';
+define(['app', 'templates'], function(App, JST) {
+    App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
-    var HomeView = Backbone.View.extend({
-        template: JST['app/scripts/templates/index.hbs'],
-        el: '.main-content',
-        events: {},
-        initialize: function () {
-            this.render();
-        },
-        render: function () {
-            //add title and class
-            $('#header-title').html('');
-            $('#header-sub-title').html('');
-            $('#header-attribution').html('');
-            $('body').attr('class', '').addClass('indexView');
+        IndexApp.View = Marionette.ItemView.extend({
+            template: JST['app/scripts/templates/index.hbs'],
+            onBeforeRender: function(){
+                //add title and class
+                $('#header-title').html('');
+                $('#header-sub-title').html('');
+                $('#header-attribution').html('');
+                $('body').attr('class', '').addClass('indexView');
+            }
 
-            this.$el.html(this.template());
-            return this;
-        }
+        });
+
     });
-
-    return HomeView;
+    return App.IndexApp.View;
 });

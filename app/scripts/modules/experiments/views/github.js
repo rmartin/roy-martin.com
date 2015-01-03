@@ -3,7 +3,7 @@ define(['app', 'templates'], function(App, JST) {
 
         Github.ItemView = Backbone.Marionette.ItemView.extend({
             tagName: 'li',
-            template: JST['app/scripts/templates/github.hbs']
+            template: JST['app/scripts/modules/experiments/templates/github.hbs']
         });
 
         Github.CollectionView = Marionette.CollectionView.extend({

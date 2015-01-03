@@ -3,7 +3,7 @@ define(['app', 'templates'], function(App, JST) {
 
         Codepen.ItemView = Backbone.Marionette.ItemView.extend({
             tagName: 'li',
-            template: JST['app/scripts/templates/codepen.hbs']
+            template: JST['app/scripts/modules/experiments/templates/codepen.hbs']
         });
 
         Codepen.CollectionView = Marionette.CollectionView.extend({

@@ -1,4 +1,4 @@
-define(['app', 'views/index'], function(App, IndexView) {
+define(['app', 'modules/index/views/index'], function(App, IndexView) {
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
         IndexApp.Controller = Marionette.Controller.extend({

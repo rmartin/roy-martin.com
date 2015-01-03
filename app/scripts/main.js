@@ -40,10 +40,10 @@ require.config({
 require([
     'app',
     'foundation',
-    'controllers/index',
-    'routes/index',
-    'controllers/experiment',
-    'routes/experiment',
+    'modules/index/controllers/index',
+    'modules/index/routes/index',
+    'modules/experiments/controllers/experiment',
+    'modules/experiments/routes/experiment',
 ], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes) {
     //start foundation
     $(document).foundation({

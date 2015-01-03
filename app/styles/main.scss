@@ -23,8 +23,8 @@ Component level styling
 @import "components/circle";
 /**
 ----------------------------------------------------------------------------------------
-Page level styling
+Module level styling
 ----------------------------------------------------------------------------------------
 */
-@import "views/index";
-@import "views/experiment";
+@import "modules/index";
+@import "modules/experiment";

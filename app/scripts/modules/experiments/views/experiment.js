@@ -4,7 +4,7 @@ define(['app', 'templates'], function(App, JST) {
         ExperimentApp.LayoutView = Backbone.Marionette.LayoutView.extend({
             tagName: 'ul',
             className: 'small-block-grid-2 medium-block-grid-3 large-block-grid-4',
-            template: JST['app/scripts/templates/experiment.hbs'],
+            template: JST['app/scripts/modules/experiments/templates/experiment.hbs'],
             regions: {
                 codepen: "#codepen",
                 github: "#github"

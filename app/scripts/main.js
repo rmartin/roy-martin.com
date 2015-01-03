@@ -44,30 +44,22 @@ require([
     'modules/index/routes/index',
     'modules/experiments/controllers/experiment',
     'modules/experiments/routes/experiment',
-], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes) {
+    'modules/thoughts/controllers/thought',
+    'modules/thoughts/routes/thought',
+], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes, ThoughtController, ThoughtRoutes) {
     //start foundation
-    $(document).foundation({
-        equalizer: {
-            equalize_on_stack: true
-        }
-    });
-
+    $(document).foundation();
 
     var indexController = new IndexController();
     var indexRoutes = new IndexRoutes({controller:indexController});
 
+    // do no evil
+    var thoughtController = new ThoughtController();
+    var thoughtRoutes = new ThoughtRoutes({controller:thoughtController});
+
     var experimentController = new ExperimentController();
     var experimentRoutes = new ExperimentRoutes({controller:experimentController});
 
-
     //load the application
     App.start();
-
-    // App.startSubApp('IndexApp');
-    // App.module("IndexApp").start();
-
-
-
-
-
 });

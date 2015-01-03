@@ -1,4 +1,4 @@
-define(['app', 'collections/codepen', 'views/experiment', 'views/codepen'], function(App, CodepenCollection, ExperimentView, CodepenView) {
+define(['app', 'collections/codepen', 'collections/github', 'views/experiment', 'views/codepen', 'views/github'], function(App, CodepenCollection, GithubCollection, ExperimentView, CodepenView, GithubView) {
     App.module('ExperimentApp', function(ExperimentApp, App, Backbone, Marionette, $, _) {
 
         ExperimentApp.Controller = Marionette.Controller.extend({
@@ -15,6 +15,14 @@ define(['app', 'collections/codepen', 'views/experiment', 'views/codepen'], func
                 });
                 codepenCollection.fetch();
                 experimentView.getRegion('codepen').show(codepenView);
+
+                //render github data into the experiment view
+                var githubCollection = new GithubCollection();
+                var githubView = new GithubView({
+                    collection: githubCollection
+                });
+                githubCollection.fetch();
+                experimentView.getRegion('github').show(githubView);
             }
         });
     });

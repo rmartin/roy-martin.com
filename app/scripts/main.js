@@ -46,7 +46,11 @@ require([
     'routes/experiment',
 ], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes) {
     //start foundation
-    $(document).foundation();
+    $(document).foundation({
+        equalizer: {
+            equalize_on_stack: true
+        }
+    });
 
 
     var indexController = new IndexController();

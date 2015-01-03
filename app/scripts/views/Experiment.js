@@ -6,7 +6,8 @@ define(['app', 'templates'], function(App, JST) {
             className: 'small-block-grid-2 medium-block-grid-3 large-block-grid-4',
             template: JST['app/scripts/templates/experiment.hbs'],
             regions: {
-                codepen: "#codepen"
+                codepen: "#codepen",
+                github: "#github"
             },
             onBeforeRender: function(){
                 //add title and class

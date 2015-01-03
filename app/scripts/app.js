@@ -3,14 +3,11 @@ define(['marionette'], function(Marionette) {
     App.addRegions({
         main: '#main-content'
     });
-    App.on('initialize:after', function() {
+    App.on('start', function() {
         if (Backbone.history) {
             Backbone.history.start();
 
-            if (this.getCurrentRoute() === "") {
-                App.trigger("index:index");
-
-            }
+        
 
         }
     });

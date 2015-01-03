@@ -46,10 +46,17 @@ require([
     //start foundation
     $(document).foundation();
 
+
+    var controller = new IndexController();
+    var indexRoutes = new IndexRoutes({controller:controller});
+
     //load the application
     App.start();
-    App.startSubApp('IndexApp');
+
+    // App.startSubApp('IndexApp');
     // App.module("IndexApp").start();
+
+
 
 
 

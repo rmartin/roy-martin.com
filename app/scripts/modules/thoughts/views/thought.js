@@ -1,9 +1,15 @@
 define(['app', 'templates'], function(App, JST) {
     App.module('ThoughtApp', function(ThoughtApp, App, Backbone, Marionette, $, _) {
 
-        ThoughtApp.View = Marionette.ItemView.extend({
+        ThoughtApp.View = Marionette.LayoutView.extend({
+            tagName: 'ul',
+            className: 'small-block-grid-2 medium-block-grid-3 large-block-grid-4',
             template: JST['app/scripts/modules/thoughts/templates/thought.hbs'],
-            onBeforeRender: function(){
+            regions: {
+                medium: "#medium-posts",
+                twitter: "#twitter-posts"
+            },
+            onBeforeRender: function() {
                 //add title and class
                 $('#header-title').html('Thoughts');
                 $('#header-sub-title').html('Thoughts on technology, development, leadership and entrepreneurship.');

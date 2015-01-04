@@ -13,7 +13,6 @@ define([
             return Backbone.sync(method, collection, options);
         },
         parse: function(results){
-            // debugger;
             return results.responseData.feed.entries;
         }
 

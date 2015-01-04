@@ -9,12 +9,15 @@ define(['app', 'templates'], function(App, JST) {
                 codepen: "#codepen",
                 github: "#github"
             },
-            onBeforeRender: function(){
+            onBeforeRender: function() {
                 //add title and class
                 $('#header-title').html('Experiments');
                 $('#header-sub-title').html('Experiments and code scribbles in web and mobile development.');
                 $('#header-attribution').html('<a href="https://commons.wikimedia.org/wiki/File:Cirrus_Clounds.jpg#mediaviewer/File:Cirrus_Clounds.jpg" target="_blank" rel="nofollow">Cirrus Clounds</a> by <a href="//commons.wikimedia.org/wiki/User:Nissim_14" title="User:Nissim 14" target="_blank" rel="nofollow">Nissim Angdembay</a>')
                 $('body').attr('class', '').addClass('experimentView');
+            },
+            onRender: function() {
+                ga('send', 'pageview');
             }
         });
 

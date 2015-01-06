@@ -117,7 +117,8 @@ module.exports = function (grunt) {
             '!<%= yeoman.dist %>/Procfile',
             '!<%= yeoman.dist %>/package.json',
             '!<%= yeoman.dist %>/web.js',
-            '!<%= yeoman.dist %>/node_modules'
+            '!<%= yeoman.dist %>/node_modules',
+            '!<%= yeoman.dist %>/data'
             ],
             server: '.tmp'
         },

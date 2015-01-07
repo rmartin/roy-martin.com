@@ -118,7 +118,8 @@ module.exports = function (grunt) {
             '!<%= yeoman.dist %>/package.json',
             '!<%= yeoman.dist %>/web.js',
             '!<%= yeoman.dist %>/node_modules',
-            '!<%= yeoman.dist %>/data'
+            '!<%= yeoman.dist %>/data',
+            '!<%= yeoman.dist %>/.env'
             ],
             server: '.tmp'
         },

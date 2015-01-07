@@ -116,7 +116,6 @@ module.exports = function (grunt) {
             '!<%= yeoman.dist %>/.git{,*/}*',
             '!<%= yeoman.dist %>/Procfile',
             '!<%= yeoman.dist %>/package.json',
-            '!<%= yeoman.dist %>/web.js',
             '!<%= yeoman.dist %>/node_modules',
             '!<%= yeoman.dist %>/data',
             '!<%= yeoman.dist %>/.env'
@@ -244,7 +243,8 @@ module.exports = function (grunt) {
                     'assets/{,*/}*.*',
                     '*.php',
                     'includes/**/*',
-                    'bower_components/foundation-icon-fonts/*.*'
+                    'bower_components/foundation-icon-fonts/*.*',
+                    'web.js'
                     ]
                 }]
             },

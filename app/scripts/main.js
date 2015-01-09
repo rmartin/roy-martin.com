@@ -46,7 +46,9 @@ require([
     'modules/experiments/routes/experiment',
     'modules/thoughts/controllers/thought',
     'modules/thoughts/routes/thought',
-], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes, ThoughtController, ThoughtRoutes) {
+    'modules/about/controllers/about',
+    'modules/about/routes/about'
+], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes, ThoughtController, ThoughtRoutes, AboutController, AboutRouter) {
     //start foundation
     $(document).foundation();
 
@@ -59,6 +61,10 @@ require([
 
     var experimentController = new ExperimentController();
     var experimentRoutes = new ExperimentRoutes({controller:experimentController});
+
+    var aboutController = new AboutController();
+    var aboutRouter = new AboutRouter({controller:aboutController});
+
 
     //load the application
     App.start();

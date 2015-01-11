@@ -20,7 +20,6 @@ define(['app', 'templates'], function(App, JST) {
                 $('body').attr('class', '').addClass('experimentView');
             },
             updateContentPadding: function(){
-                console.log('yo')
                 $('.main-content').css('margin-top', $('.background-image').height() + "px");
             },
             onRender: function() {

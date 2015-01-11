@@ -1,16 +1,16 @@
 body.indexView {
 
-    .background-image {
-        background: url("/images/headshot.jpg") no-repeat 65% center;
-        background-size: cover;
-        content: ' ';
-        height: 600px;
-        width: 100%;
-        position: absolute;
+    .index-header-container{
+        @include vertical-align;
+    }
+
+
+
+    .main-subheader, .main-subheader{
 
     }
 
 }
-@media only screen and (min-width: 64.063em) {
-
+@media only screen and (min-width: 40.063em) {
+    
 }

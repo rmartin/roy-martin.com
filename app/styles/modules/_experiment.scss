@@ -1,10 +1,14 @@
 body.experimentView {
 
+    #header-title, #header-title a, #header-sub-title, #header-sub-title a{
+        color: #fff;
+    }
+
     .background-image {
         background: url("/images/experiments.jpg") no-repeat 65% center;
         background-size: cover;
         content: ' ';
-        height: 600px;
+        height: 100%;
         width: 100%;
         position: absolute;
     }

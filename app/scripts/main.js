@@ -65,6 +65,23 @@ require([
     var aboutController = new AboutController();
     var aboutRouter = new AboutRouter({controller:aboutController});
 
+    // $(function() {
+    //     var timer;
+    //
+    //     //resize navigation to be 100% height
+    //     $(window).resize(function() {
+    //         clearTimeout(timer);
+    //         timer = setTimeout(function() {
+    //             $('.inner-wrap').css("min-height", $(window).height() + "px" );
+    //         }, 40);
+    //     }).resize();
+    //
+    // });
+
+    //trigger a resize event for all views
+    _.extend(window, Backbone.Events);
+    window.onresize = function() { window.trigger('resize') };
+
 
     //load the application
     App.start();

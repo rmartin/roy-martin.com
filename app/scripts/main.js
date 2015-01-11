@@ -9,6 +9,7 @@ require.config({
         marionette: '../bower_components/marionette/lib/backbone.marionette.min',
         handlebars: '../bower_components/handlebars/handlebars.min',
         foundation: '../bower_components/foundation/js/foundation.min',
+        THREE: '../bower_components/threejs/build/three.min',
         app: 'app'
     },
     shim: {
@@ -33,6 +34,9 @@ require.config({
         },
         handlebars: {
             exports: 'Handlebars'
+        },
+        THREE:{
+            exports: 'THREE'
         }
     }
 });
@@ -65,22 +69,15 @@ require([
     var aboutController = new AboutController();
     var aboutRouter = new AboutRouter({controller:aboutController});
 
-    // $(function() {
-    //     var timer;
-    //
-    //     //resize navigation to be 100% height
-    //     $(window).resize(function() {
-    //         clearTimeout(timer);
-    //         timer = setTimeout(function() {
-    //             $('.inner-wrap').css("min-height", $(window).height() + "px" );
-    //         }, 40);
-    //     }).resize();
-    //
-    // });
-
     //trigger a resize event for all views
     _.extend(window, Backbone.Events);
     window.onresize = function() { window.trigger('resize') };
+
+    $(document).bind('mousemove',function(e){
+        window.mouseX = e.pageX;
+        window.mouseY = e.pageY;
+        window.trigger('mouseMove');
+    });
 
 
     //load the application

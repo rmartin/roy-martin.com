@@ -22,6 +22,7 @@ define(['app', 'templates'], function(App, JST) {
             updateContentPadding: function(){
                 $('.main-content').css('margin-top', $('.background-image').height() + "px");
             },
+
             onRender: function() {
                 ga('send', 'pageview');
                 this.updateContentPadding();

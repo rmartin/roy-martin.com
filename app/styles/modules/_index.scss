@@ -4,6 +4,12 @@ body.indexView {
         @include vertical-align;
     }
 
+    .background-image canvas{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
 
 
     .main-subheader, .main-subheader{
@@ -12,5 +18,5 @@ body.indexView {
 
 }
 @media only screen and (min-width: 40.063em) {
-    
+
 }

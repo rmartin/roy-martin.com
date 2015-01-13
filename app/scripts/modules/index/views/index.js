@@ -19,6 +19,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
             className: 'view-content',
             initialize: function(){
                 this.listenTo(window, 'mouseMove', this.getIntersections);
+                this.listenTo(window, 'touchStart', this.getIntersections);
                 this.listenTo(window, 'resize', this.getIntersections);
             },
             onBeforeRender: function() {

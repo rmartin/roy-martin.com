@@ -36,6 +36,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
             getIntersections: function(){
                 if($('.background-image canvas').length !== 0){
 
+                    // find the unique intersections for the object based on the position of the mouse
                     vector = new THREE.Vector3();
                     vector.set( ( window.mouseX / window.innerWidth ) * 2 - 1, - ( window.mouseY / window.innerHeight ) * 2 + 1, 0.5 ); // z = 0.5 important!
                     vector.unproject( camera );
@@ -43,31 +44,39 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     raycaster.set( camera.position, vector.sub( camera.position ).normalize() );
                     intersects = _.uniq(raycaster.intersectObjects( objects, true ), false, function(p){return p.object.id;});
 
-
-                    //when hovering over items, make them full circles, when hover off, revert them
+                    // when hovering over items, make them full circles, when hover off, revert them
                     if(intersects.length){
-                        console.log(activeObjects)
                         if(typeof activeObjects[intersects[0].object.id] === "undefined"){
 
+                            // get active object and update scale and 'pause' the animation
+                            var currentObject = sphereArray[intersects[0].object.id];
 
-                            intersects[0].object.scale.x = 1.5;
-                            intersects[0].object.scale.y = 1.5;
-                            intersects[0].object.scale.z = 1.5;
-                            // sphereArray[i].direction = {}
-                            // sphereArray[i].direction.x = that.getRandomNumber()/1000;
-                            // sphereArray[i].direction.y = that.getRandomNumber()/1000;
-                            // intersects[0].object.geometry.verticesNeedUpdate = true;
+                            // increase the size of the circle on hover
+                            currentObject.mesh.scale.x = 1.5;
+                            currentObject.mesh.scale.y = 1.5;
+                            currentObject.mesh.scale.z = 1.5;
+
+                            //stop the animation on hover
+                            currentObject.direction.x = 0;
+                            currentObject.direction.y = 0;
                             activeObjects[intersects[0].object.id] = intersects[0];
                         }
                     }else{
                         if(activeObjects.length !== 0){
                             for(var currentIndex in activeObjects){
-                                var currentObj = activeObjects[currentIndex]
+                                // get active object and update scale and 'pause' the animation
+                                var currentObject = sphereArray[activeObjects[currentIndex].object.id];
 
-                                currentObj.object.scale.x = 1;
-                                currentObj.object.scale.y = 1;
-                                currentObj.object.scale.z = 1;
-                                // currentObj.geometry.verticesNeedUpdate = true;
+                                // reset the scale
+                                currentObject.mesh.scale.x = 1;
+                                currentObject.mesh.scale.y = 1;
+                                currentObject.mesh.scale.z = 1;
+
+                                // resume the animation
+                                currentObject.direction.x = this.getRandomNumber()/1000;
+                                currentObject.direction.y = this.getRandomNumber()/1000;
+
+                                // remove the item from the active hover state array
                                 delete activeObjects[currentIndex];
                             }
                         }
@@ -84,8 +93,6 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     renderer = new THREE.WebGLRenderer({alpha: true});
                     renderer.setSize($('body').width(), $('body').height());
                     $('.background-image').html(renderer.domElement);
-
-
 
                     for(var i=0; i<=sphereCount; i++){
 
@@ -113,12 +120,10 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     projector = new THREE.Projector();
                     var render = function() {
                         requestAnimationFrame(render);
-                        for(var i=0; i<=sphereCount; i++){
-                            sphereArray[i].mesh.position.x += sphereArray[i].direction.x;
-                            sphereArray[i].mesh.position.y += sphereArray[i].direction.y;
-                            // sphereArray[i].mesh.rotation.z += sphereArray[i].rotation.z;
+                        for(var currentIndex in sphereArray){
+                            sphereArray[currentIndex].mesh.position.x += sphereArray[currentIndex].direction.x;
+                            sphereArray[currentIndex].mesh.position.y += sphereArray[currentIndex].direction.y;
                         }
-
                         renderer.render(scene, camera);
                     };
 

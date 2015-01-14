@@ -2,7 +2,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
         //number of spheres to generate
-        var sphereCount = 10;
+        var sphereCount = 20;
 
         var scene, camera, renderer, sphereArray,projector;
         var objects = [];
@@ -41,22 +41,31 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     vector.unproject( camera );
                     raycaster = new THREE.Raycaster();
                     raycaster.set( camera.position, vector.sub( camera.position ).normalize() );
-                    intersects = raycaster.intersectObjects( objects, false );
+                    intersects = _.uniq(raycaster.intersectObjects( objects, true ), false, function(p){return p.object.id;});
+
 
                     //when hovering over items, make them full circles, when hover off, revert them
                     if(intersects.length){
+                        console.log(activeObjects)
                         if(typeof activeObjects[intersects[0].object.id] === "undefined"){
-                            intersects[0].object.geometry = (new THREE.SphereGeometry(.5, 8, 8));
-                            intersects[0].object.geometry.verticesNeedUpdate = true;
-                            activeObjects[intersects[0].object.id] = intersects[0].object;
+
+
+                            intersects[0].object.scale.x = 1.5;
+                            intersects[0].object.scale.y = 1.5;
+                            intersects[0].object.scale.z = 1.5;
+                            // intersects[0].object.geometry.verticesNeedUpdate = true;
+                            activeObjects[intersects[0].object.id] = intersects[0];
                         }
                     }else{
                         if(activeObjects.length !== 0){
-                            for(var currObj in activeObjects){
-                                currentObj = activeObjects[currObj];
-                                currentObj.geometry = (new THREE.SphereGeometry(.5, 1, 1));
-                                currentObj.geometry.verticesNeedUpdate = true;
-                                delete activeObjects[currObj];
+                            for(var currentIndex in activeObjects){
+                                var currentObj = activeObjects[currentIndex]
+
+                                currentObj.object.scale.x = 1;
+                                currentObj.object.scale.y = 1;
+                                currentObj.object.scale.z = 1;
+                                // currentObj.geometry.verticesNeedUpdate = true;
+                                delete activeObjects[currentIndex];
                             }
                         }
                     }
@@ -74,14 +83,29 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     $('.background-image').html(renderer.domElement);
 
 
+
                     for(var i=0; i<=sphereCount; i++){
+
+                        var geometry = new THREE.CircleGeometry(.5, 30);
+                        geometry.vertices.shift();
+                        geometry.dynamic = true;
+                        var material = new THREE.LineBasicMaterial({wireframe: true, color: 0x5e5e5e});
+
+
                         sphereArray[i] = {}
-                        sphereArray[i].mesh = new THREE.Mesh(new THREE.SphereGeometry(.5, 1, 1), new THREE.MeshBasicMaterial({wireframe: true, color: 0x5e5e5e}));
-                        sphereArray[i].mesh.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
-                        sphereArray[i].rotation = {}
-                        sphereArray[i].rotation.x = Math.abs(that.getRandomNumber()/1000);
-                        sphereArray[i].rotation.y = Math.abs(that.getRandomNumber()/1000);
-                        sphereArray[i].rotation.z = Math.abs(that.getRandomNumber()/1000);
+                            sphereArray[i].mesh = new THREE.Line(geometry, material);
+                            sphereArray[i].mesh.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
+                            sphereArray[i].direction = {}
+                            sphereArray[i].direction.x = that.getRandomNumber()/1000;
+                            sphereArray[i].direction.y = that.getRandomNumber()/1000;
+                            // sphereArray[i].direction.z = Math.abs(that.getRandomNumber()/1000);
+
+
+
+                        // sphereArray[i].rotation = {}
+                        // sphereArray[i].rotation.x = Math.abs(that.getRandomNumber()/1000);
+                        // sphereArray[i].rotation.y = Math.abs(that.getRandomNumber()/1000);
+                        // sphereArray[i].rotation.z = Math.abs(that.getRandomNumber()/1000);
                         sphereArray[i].mesh.dynamic = true;
                         scene.add( sphereArray[i].mesh );
                         objects.push(sphereArray[i].mesh);
@@ -94,9 +118,9 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     var render = function() {
                         requestAnimationFrame(render);
                         for(var i=0; i<=sphereCount; i++){
-                            sphereArray[i].mesh.rotation.y += sphereArray[i].rotation.x;
-                            sphereArray[i].mesh.rotation.x += sphereArray[i].rotation.y;
-                            sphereArray[i].mesh.rotation.z += sphereArray[i].rotation.z;
+                            sphereArray[i].mesh.position.x += sphereArray[i].direction.x;
+                            sphereArray[i].mesh.position.y += sphereArray[i].direction.y;
+                            // sphereArray[i].mesh.rotation.z += sphereArray[i].rotation.z;
                         }
 
                         renderer.render(scene, camera);

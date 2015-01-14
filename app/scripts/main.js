@@ -82,7 +82,7 @@ require([
     $(document).bind('touchstart',function(e){
         window.mouseX = e.originalEvent.changedTouches[0].pageX;
         window.mouseY = e.originalEvent.changedTouches[0].pageY;
-        console.log('touch Start', window.mouseX, window.mouseY);
+        // console.log('touch Start', window.mouseX, window.mouseY);
         window.trigger('touchStart');
     });
 

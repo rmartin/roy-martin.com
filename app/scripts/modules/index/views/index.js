@@ -53,6 +53,9 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                             intersects[0].object.scale.x = 1.5;
                             intersects[0].object.scale.y = 1.5;
                             intersects[0].object.scale.z = 1.5;
+                            // sphereArray[i].direction = {}
+                            // sphereArray[i].direction.x = that.getRandomNumber()/1000;
+                            // sphereArray[i].direction.y = that.getRandomNumber()/1000;
                             // intersects[0].object.geometry.verticesNeedUpdate = true;
                             activeObjects[intersects[0].object.id] = intersects[0];
                         }
@@ -90,25 +93,18 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                         geometry.vertices.shift();
                         geometry.dynamic = true;
                         var material = new THREE.LineBasicMaterial({wireframe: true, color: 0x5e5e5e});
+                        var currentCircle = new THREE.Line(geometry, material);
+                        currentCircle.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
 
-
-                        sphereArray[i] = {}
-                            sphereArray[i].mesh = new THREE.Line(geometry, material);
-                            sphereArray[i].mesh.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
-                            sphereArray[i].direction = {}
-                            sphereArray[i].direction.x = that.getRandomNumber()/1000;
-                            sphereArray[i].direction.y = that.getRandomNumber()/1000;
-                            // sphereArray[i].direction.z = Math.abs(that.getRandomNumber()/1000);
-
-
-
-                        // sphereArray[i].rotation = {}
-                        // sphereArray[i].rotation.x = Math.abs(that.getRandomNumber()/1000);
-                        // sphereArray[i].rotation.y = Math.abs(that.getRandomNumber()/1000);
-                        // sphereArray[i].rotation.z = Math.abs(that.getRandomNumber()/1000);
-                        sphereArray[i].mesh.dynamic = true;
-                        scene.add( sphereArray[i].mesh );
-                        objects.push(sphereArray[i].mesh);
+                        sphereArray[currentCircle.id] = {
+                            'mesh' : currentCircle,
+                            'direction': {
+                                'x' : that.getRandomNumber()/1000,
+                                'y' : that.getRandomNumber()/1000
+                            }
+                        }
+                        scene.add(currentCircle);
+                        objects.push(currentCircle);
                     }
 
                     camera.position.z = 10;

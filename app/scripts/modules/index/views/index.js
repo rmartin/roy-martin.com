@@ -59,6 +59,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                             //stop the animation on hover
                             currentObject.direction.x = 0;
                             currentObject.direction.y = 0;
+                            currentObject.direction.z = 0;
                             activeObjects[intersects[0].object.id] = intersects[0];
                         }
                     }else{
@@ -75,6 +76,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                                 // resume the animation
                                 currentObject.direction.x = this.getRandomNumber()/1000;
                                 currentObject.direction.y = this.getRandomNumber()/1000;
+                                currentObject.direction.z = this.getRandomNumber()/1000;
 
                                 // remove the item from the active hover state array
                                 delete activeObjects[currentIndex];
@@ -96,22 +98,24 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
 
                     for(var i=0; i<=sphereCount; i++){
 
-                        var geometry = new THREE.CircleGeometry(.5, 30);
-                        geometry.vertices.shift();
-                        geometry.dynamic = true;
-                        var material = new THREE.LineBasicMaterial({wireframe: true, color: 0x5e5e5e});
-                        var currentCircle = new THREE.Line(geometry, material);
-                        currentCircle.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
+                        // var geometry = new THREE.CircleGeometry(.5, 30);
+                        // geometry.vertices.shift();
+                        // geometry.dynamic = true;
+                        // var material = new THREE.LineBasicMaterial({wireframe: true, color: 0x5e5e5e});
+                        // var currentCircle = new THREE.Line(geometry, material);
+                        var currentObject = new THREE.Mesh(new THREE.SphereGeometry(.5, 1, 1), new THREE.MeshBasicMaterial({wireframe: true, color: 0x5e5e5e}));
+                        currentObject.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
 
-                        sphereArray[currentCircle.id] = {
-                            'mesh' : currentCircle,
+                        sphereArray[currentObject.id] = {
+                            'mesh' : currentObject,
                             'direction': {
                                 'x' : that.getRandomNumber()/1000,
-                                'y' : that.getRandomNumber()/1000
+                                'y' : that.getRandomNumber()/1000,
+                                'z' : that.getRandomNumber()/1000,
                             }
                         }
-                        scene.add(currentCircle);
-                        objects.push(currentCircle);
+                        scene.add(currentObject);
+                        objects.push(currentObject);
                     }
 
                     camera.position.z = 10;
@@ -123,6 +127,10 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                         for(var currentIndex in sphereArray){
                             sphereArray[currentIndex].mesh.position.x += sphereArray[currentIndex].direction.x;
                             sphereArray[currentIndex].mesh.position.y += sphereArray[currentIndex].direction.y;
+
+                            sphereArray[currentIndex].mesh.rotation.x += sphereArray[currentIndex].direction.x;
+                            sphereArray[currentIndex].mesh.rotation.y += sphereArray[currentIndex].direction.y;
+                            sphereArray[currentIndex].mesh.rotation.z += sphereArray[currentIndex].direction.z;
                         }
                         renderer.render(scene, camera);
                     };

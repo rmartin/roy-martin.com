@@ -377,7 +377,7 @@ module.exports = function (grunt) {
             heroku: {
                 options: {
                     login: 'roy@roy-martin.com',
-                    remote: 'git@heroku.com:roy-martin.git',
+                    remote: 'git@heroku_roymartin:roy-martin.git',
                     branch: 'master'
 
                 }

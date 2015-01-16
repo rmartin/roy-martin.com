@@ -1,12 +1,11 @@
 define(['app', 'modules/index/views/visualizer', 'templates'], function(App, Visualizer, JST) {
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
-
         IndexApp.View = Marionette.ItemView.extend({
             template: JST['app/scripts/modules/index/templates/index.hbs'],
             className: 'view-content',
             initialize: function(){
-                // this.visualizer = new Visualizer();
+                this.visualizer = new Visualizer();
                 this.listenTo(window, 'mouseMove', this.getIntersections);
                 this.listenTo(window, 'touchStart', this.getIntersections);
                 this.listenTo(window, 'resize', this.getIntersections);
@@ -17,12 +16,12 @@ define(['app', 'modules/index/views/visualizer', 'templates'], function(App, Vis
                 $('#header-sub-title').html('');
                 $('#header-attribution').html('');
                 $('body').attr('class', '').addClass('indexView');
-            }
+            },
             getIntersections: function(){
-                Visualizer.getIntersections();
+                this.visualizer.getIntersections();
             },
             renderBackgroundImage: function(){
-                Visualizer.renderBackgroundImage();
+                this.visualizer.renderBackgroundImage();
             },
             onRender: function() {
                 ga('send', 'pageview');

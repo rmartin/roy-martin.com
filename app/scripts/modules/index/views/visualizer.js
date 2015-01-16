@@ -93,14 +93,14 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                         // var material = new THREE.LineBasicMaterial({wireframe: true, color: 0x5e5e5e});
                         // var currentCircle = new THREE.Line(geometry, material);
                         var currentObject = new THREE.Mesh(new THREE.SphereGeometry(.5, 1, 1), new THREE.MeshBasicMaterial({wireframe: true, color: 0x5e5e5e}));
-                        currentObject.position.set(this.getRandomNumber(),this.getRandomNumber(),0);
+                        currentObject.position.set(getRandomNumber(),getRandomNumber(),0);
 
                         sphereArray[currentObject.id] = {
                             'mesh' : currentObject,
                             'direction': {
-                                'x' : that.getRandomNumber()/1000,
-                                'y' : that.getRandomNumber()/1000,
-                                'z' : that.getRandomNumber()/1000,
+                                'x' : getRandomNumber()/1000,
+                                'y' : getRandomNumber()/1000,
+                                'z' : getRandomNumber()/1000,
                             }
                         }
                         scene.add(currentObject);

@@ -20,12 +20,12 @@ define(['app', 'modules/index/views/visualizer', 'templates'], function(App, Vis
             getIntersections: function(){
                 this.visualizer.getIntersections();
             },
-            renderBackgroundImage: function(){
-                this.visualizer.renderBackgroundImage();
+            renderScene: function(){
+                this.visualizer.renderScene();
             },
             onRender: function() {
                 ga('send', 'pageview');
-                this.renderBackgroundImage();
+                this.renderScene();
             }
         });
     });

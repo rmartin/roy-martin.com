@@ -237,9 +237,6 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     for (var i = 1; i <= sphereCount; i++) {
                         var currAsteroid = createNewAsteroid();
                         asteroidArray[currAsteroid.id] = currAsteroid;
-
-                        console.log(currAsteroid)
-
                         scene.add(currAsteroid.mesh);
                         objects.push(currAsteroid.mesh);
                     }

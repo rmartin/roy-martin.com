@@ -24,8 +24,6 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
             raycaster = new THREE.Raycaster(),
             dir = new THREE.Vector3(),
             intersects,
-            currentIndex,
-            currentObject,
             currentLines = [],
             currLine,
             currLineGeometry,
@@ -103,10 +101,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     // when hovering over items, make them full circles, when hover off, revert them
                     if (intersects.length) {
                         if (typeof activeObjects[intersects[0].object.id] === "undefined") {
-                            currentObject = asteroidArray[intersects[0].object.id];
-
-                            //change the material based on the type of the post
-                            //currentObject.mesh.material = twitterMaterial;
+                            var currentObject = asteroidArray[intersects[0].object.id];
 
                             // increase the size of the asteroid on hover
                             currentObject.mesh.scale.x = 2.5;
@@ -120,9 +115,10 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                         }
                     } else {
                         if (activeObjects.length !== 0) {
-                            for (currentIndex in activeObjects) {
+                            var i;
+                            for (i in activeObjects) {
                                 // get active object and update scale and 'pause' the animation
-                                currentObject = asteroidArray[activeObjects[currentIndex].object.id];
+                                var currentObject = asteroidArray[activeObjects[i].object.id];
 
                                 //currentObject.mesh.material = defaultMaterial;
 
@@ -136,7 +132,7 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                                 currentObject.direction.y = _.random(-0.01, 0.01);
 
                                 // remove the item from the active hover state array
-                                delete activeObjects[currentIndex];
+                                delete activeObjects[i];
                             }
                         }
                     }
@@ -147,22 +143,20 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                 var xPosition = _.random(cameraFOVWidth * -1, cameraFOVWidth),
                     yPosition = _.random(cameraFOVHeight * -1, cameraFOVHeight),
                     zPosition = 0,
-                    xDirection = _.random(-0.01, 0.01),
-                    yDirection = _.random(-0.01, 0.01),
+                    xDirection = _.random(-10,10)/1000,
+                    yDirection = _.random(-10,10)/1000,
                     zDirection = 0;
 
                 //TODO: Currently randomly selected mesh types. Convert this to the API call to return a real type.
-
                 var currentMeshType = apiMeshTypeKeys[_.random(0, apiMeshTypeKeys.length - 1)];
-
-                var currentObject = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);
-                currentObject.position.set(xPosition, yPosition, zPosition);
-                currentObject.receiveShadow = true;
-                currentObject.castShadow = false;
+                var currAstroid = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);
+                currAstroid.position.set(xPosition, yPosition, zPosition);
+                currAstroid.receiveShadow = true;
+                currAstroid.castShadow = false;
 
                 return {
-                    'id': currentObject.id,
-                    'mesh': currentObject,
+                    'id': currAstroid.id,
+                    'mesh': currAstroid,
                     'direction': {
                         'x': xDirection,
                         'y': yDirection,
@@ -243,6 +237,8 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     for (var i = 1; i <= sphereCount; i++) {
                         var currAsteroid = createNewAsteroid();
                         asteroidArray[currAsteroid.id] = currAsteroid;
+
+                        console.log(currAsteroid)
 
                         scene.add(currAsteroid.mesh);
                         objects.push(currAsteroid.mesh);

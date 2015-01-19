@@ -128,8 +128,8 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                                 currentObject.mesh.scale.z = 1;
 
                                 // resume the animation
-                                currentObject.direction.x = _.random(-0.01, 0.01);
-                                currentObject.direction.y = _.random(-0.01, 0.01);
+                                currentObject.direction.x = _.random(-10,10)/1000;
+                                currentObject.direction.y = _.random(-10,10)/1000;
 
                                 // remove the item from the active hover state array
                                 delete activeObjects[i];

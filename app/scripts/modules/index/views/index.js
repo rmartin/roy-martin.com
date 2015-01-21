@@ -4,7 +4,7 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
         IndexApp.View = Marionette.ItemView.extend({
             template: JST['app/scripts/modules/index/templates/index.hbs'],
             className: 'view-content',
-            initialize: function(){
+            initialize: function() {
                 this.visualizer = new Visualizer();
                 this.listenTo(window, 'mouseMove', this.getIntersections);
                 this.listenTo(window, 'touchStart', this.getIntersections);
@@ -17,10 +17,10 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
                 $('#header-attribution').html('');
                 $('body').attr('class', '').addClass('indexView');
             },
-            getIntersections: function(){
+            getIntersections: function() {
                 this.visualizer.getIntersections();
             },
-            renderScene: function(){
+            renderScene: function() {
                 this.visualizer.renderScene();
             },
             onRender: function() {

@@ -12,23 +12,29 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             },
             onBeforeRender: function() {
                 //add title and class
-                $('#header-title').html('<a href="http://thoughts.roy-martin.com">Thoughts</a> and <a href="#experiments">Experiments</a><br />by <a href="#about">Roy Martin</a>');
-                $('#header-sub-title').html('');
+                $('#header-title').html('<a href="http://thoughts.roy-martin.com">Thoughts</a> and <a href="#experiments">Experiments</a>');
+                $('#header-sub-title').html('by <a href="#about">Roy Martin</a>');
                 $('#header-attribution').html('');
                 $('body').attr('class', '').addClass('indexView');
             },
             getIntersections: function() {
                 this.visualizer.getIntersections();
             },
-            updateWindowSize: function(){
+            updateWindowSize: function() {
                 this.visualizer.updateWindowSize();
             },
             renderScene: function() {
                 this.visualizer.renderScene();
             },
+            animateHero: function(){
+                var t1 = new TimelineLite();
+                t1.from('#header-title', .5, {x: (window.innerWidth * -1) + 'px'})
+                .from('#header-sub-title', .5, {x: window.innerWidth + 'px'}, 0);
+            },
             onRender: function() {
                 ga('send', 'pageview');
                 this.renderScene();
+                this.animateHero();
             }
         });
     });

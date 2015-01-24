@@ -4,13 +4,23 @@ body.indexView {
         @include vertical-align;
     }
 
+    //move off screen until the start of the animation
+    #header-title, #header-sub-title{
+        // transform: translateX(-40em);
+    }
+
+    #header-sub-title, #header-sub-title a{
+        font-family: "aviano-future";
+        font-size: 3.5rem;
+        font-weight: 700;
+        font-style: italic;
+    }
+
     .background-image canvas{
         position: absolute;
         left: 0;
         top: 0;
     }
-
-
 
     .main-subheader, .main-subheader{
 

@@ -8,7 +8,7 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
                 this.visualizer = new Visualizer();
                 this.listenTo(window, 'mouseMove', this.getIntersections);
                 this.listenTo(window, 'touchStart', this.getIntersections);
-                this.listenTo(window, 'resize', this.getIntersections);
+                this.listenTo(window, 'resize', this.updateWindowSize);
             },
             onBeforeRender: function() {
                 //add title and class
@@ -19,6 +19,9 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             },
             getIntersections: function() {
                 this.visualizer.getIntersections();
+            },
+            updateWindowSize: function(){
+                this.visualizer.updateWindowSize();
             },
             renderScene: function() {
                 this.visualizer.renderScene();

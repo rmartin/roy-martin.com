@@ -78,6 +78,7 @@ require([
     //trigger a resize event for all views
     _.extend(window, Backbone.Events);
     window.onresize = function() { window.trigger('resize') };
+    window.orientationchange = function() { window.trigger('resize'); }
 
     $(document).bind('mousemove',function(e){
         window.mouseX = e.pageX;

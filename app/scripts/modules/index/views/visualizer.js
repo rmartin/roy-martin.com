@@ -207,18 +207,12 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     //set camera and calculate FOV
                     camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1000);
                     camera.position.set(0, 0, cameraDist);
-                    cameraFOV = camera.fov * Math.PI / 180;
-                    cameraFOVHeight = 2 * Math.tan(cameraFOV / 2) * cameraDist;
-                    cameraFOVWidth = cameraFOVHeight * sceneAspectRatio;
-                    //adjust for half of the screen
-                    cameraFOVHeight = cameraFOVHeight / 2;
-                    cameraFOVWidth = cameraFOVWidth / 2;
-
                     //set render engine and scene
                     renderer = new THREE.WebGLRenderer({
                         alpha: true
                     });
-                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    updateWindowSize();
+                    //renderer.setSize(window.innerWidth, window.innerHeight);
                     renderer.showMapEnabed = true;
 
                     // initialize object to perform world/screen calculations
@@ -251,9 +245,28 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                 }
             }
 
+            var updateWindowSize = function(){
+                sceneWidth = window.innerWidth,
+                sceneHeight = window.innerHeight,
+                sceneAspectRatio = window.innerWidth / window.innerHeight
+
+
+                camera.aspect = sceneAspectRatio;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize( window.innerWidth, window.innerHeight );
+                cameraFOV = camera.fov * Math.PI / 180;
+                cameraFOVHeight = 2 * Math.tan(cameraFOV / 2) * cameraDist;
+                cameraFOVWidth = cameraFOVHeight * sceneAspectRatio;
+                //adjust for half of the screen
+                cameraFOVHeight = cameraFOVHeight / 2;
+                cameraFOVWidth = cameraFOVWidth / 2;
+            }
+
             return {
                 getIntersections: getIntersections,
-                renderScene: renderScene
+                renderScene: renderScene,
+                updateWindowSize: updateWindowSize
             };
         });
     });

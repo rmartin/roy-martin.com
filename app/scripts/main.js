@@ -10,6 +10,8 @@ require.config({
         handlebars: '../bower_components/handlebars/handlebars.min',
         foundation: '../bower_components/foundation/js/foundation.min',
         THREE: '../bower_components/threejs/build/three.min',
+        THREECanvasRenderer: './vendor/threejs/CanvasRenderer',
+        THREEProjector: './vendor/threejs/Projector',
         TweenMax:  "../bower_components/gsap/src/uncompressed/TweenMax",
         TweenLite: "../bower_components/gsap/src/uncompressed/TweenLite",
         CSSPlugin: "../bower_components/gsap/src/uncompressed/plugins/CSSPlugin",
@@ -43,6 +45,14 @@ require.config({
         },
         THREE:{
             exports: 'THREE'
+        },
+        THREECanvasRenderer : {
+            deps: ['THREE', 'THREEProjector'],
+            exports: 'THREE.CanvasRenderer'
+        },
+        THREEProjector : {
+            deps: ['THREE'],
+            exports: 'THREE.Projector'
         }
     }
 });

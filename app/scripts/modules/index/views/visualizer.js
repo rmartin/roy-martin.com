@@ -221,7 +221,7 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                     camera.position.set(0, 0, cameraDist);
                     //set render engine and scene
                     //detect the appropriate rendering engine
-                    if(!webglAvailable()){
+                    if(webglAvailable()){
                         renderer = new THREE.WebGLRenderer({
                             alpha: true,
                             antialias: true

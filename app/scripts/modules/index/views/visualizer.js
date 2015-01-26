@@ -1,4 +1,4 @@
-define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
+define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE, CanvasRenderer, JST) {
     'use strict';
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
@@ -199,6 +199,18 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                 }
             }
 
+            var webglAvailable = function() {
+                try {
+                    var canvas = document.createElement( 'canvas' );
+                    return !!( window.WebGLRenderingContext && (
+                        canvas.getContext( 'webgl' ) ||
+                        canvas.getContext( 'experimental-webgl' ) )
+                    );
+                } catch ( e ) {
+                    return false;
+                }
+            }
+
             var renderScene = function() {
                 var that = this;
 
@@ -208,9 +220,19 @@ define(['app', 'THREE', 'templates'], function(App, THREE, JST) {
                     camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1000);
                     camera.position.set(0, 0, cameraDist);
                     //set render engine and scene
-                    renderer = new THREE.WebGLRenderer({
-                        alpha: true
-                    });
+                    //detect the appropriate rendering engine
+                    if(!webglAvailable()){
+                        renderer = new THREE.WebGLRenderer({
+                            alpha: true,
+                            antialias: true
+                        });
+                    }else{
+                        renderer = new THREE.CanvasRenderer({
+                            alpha: true,
+                            antialias: true
+                        });
+                    }
+
                     updateWindowSize();
                     //renderer.setSize(window.innerWidth, window.innerHeight);
                     renderer.showMapEnabed = true;

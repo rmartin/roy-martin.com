@@ -13,7 +13,6 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
-    grunt.loadNpmTasks('grunt-libsass');
     grunt.loadNpmTasks('css-sprite');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-autoprefixer');
@@ -44,9 +43,9 @@ module.exports = function (grunt) {
                 '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}'
                 ]
             },
-            libsass: {
+            sass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.scss'],
-                tasks: ['libsass']
+                tasks: ['sass']
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -271,18 +270,22 @@ module.exports = function (grunt) {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        libsass: {
+        sass: {
             options: {
-                outputStyle: 'compact',
-                sourcemap: true
+                sourceMap: false,
+                includePaths : ['<%= yeoman.app %>/bower_components']
             },
-            files: {
-                expand: true,
-                cwd: '<%= yeoman.app %>/styles',
-                src: ['main.scss'],
-                dest: '.tmp/styles/',
-                ext: '.css'
+            dev: {
+                files: {
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
+            },
+            dist: {
+                files: {
+                    '<%= yeoman.dist %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
             }
+
         },
         // documentation - https://github.com/aslansky/css-sprite
         css_sprite: {
@@ -418,7 +421,7 @@ module.exports = function (grunt) {
                 'clean:server',
                 'createDefaultTemplate',
                 'handlebars',
-                'libsass',
+                'sass',
                 'grunticon:dev',
                 'connect:livereload',
                 'open:server',
@@ -451,7 +454,7 @@ module.exports = function (grunt) {
             'handlebars',
             'svgmin',
             'grunticon',
-            'libsass',
+            'sass',
             'useminPrepare',
             'requirejs',
             'imagemin',
@@ -468,7 +471,7 @@ module.exports = function (grunt) {
             'handlebars',
             'svgmin',
             'grunticon',
-            'libsass',
+            'sass',
             'css_sprite',
             'useminPrepare',
             'requirejs',

@@ -1,6 +1,3 @@
-/*global require*/
-'use strict';
-
 require.config({
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
@@ -12,7 +9,7 @@ require.config({
         THREE: '../bower_components/threejs/build/three.min',
         THREECanvasRenderer: './vendor/threejs/CanvasRenderer',
         THREEProjector: './vendor/threejs/Projector',
-        TweenMax:  "../bower_components/gsap/src/uncompressed/TweenMax",
+        TweenMax: "../bower_components/gsap/src/uncompressed/TweenMax",
         TweenLite: "../bower_components/gsap/src/uncompressed/TweenLite",
         CSSPlugin: "../bower_components/gsap/src/uncompressed/plugins/CSSPlugin",
         TimelineLite: "../bower_components/gsap/src/uncompressed/TimelineLite",
@@ -43,14 +40,14 @@ require.config({
         handlebars: {
             exports: 'Handlebars'
         },
-        THREE:{
+        THREE: {
             exports: 'THREE'
         },
-        THREECanvasRenderer : {
+        THREECanvasRenderer: {
             deps: ['THREE', 'THREEProjector'],
             exports: 'THREE.CanvasRenderer'
         },
-        THREEProjector : {
+        THREEProjector: {
             deps: ['THREE'],
             exports: 'THREE.Projector'
         }
@@ -69,34 +66,47 @@ require([
     'modules/about/controllers/about',
     'modules/about/routes/about'
 ], function(App, foundation, IndexController, IndexRoutes, ExperimentController, ExperimentRoutes, ThoughtController, ThoughtRoutes, AboutController, AboutRouter) {
+    'use strict';
     //start foundation
     $(document).foundation();
 
     var indexController = new IndexController();
-    var indexRoutes = new IndexRoutes({controller:indexController});
+    var indexRoutes = new IndexRoutes({
+        controller: indexController
+    });
 
     // do no evil
     var thoughtController = new ThoughtController();
-    var thoughtRoutes = new ThoughtRoutes({controller:thoughtController});
+    var thoughtRoutes = new ThoughtRoutes({
+        controller: thoughtController
+    });
 
     var experimentController = new ExperimentController();
-    var experimentRoutes = new ExperimentRoutes({controller:experimentController});
+    var experimentRoutes = new ExperimentRoutes({
+        controller: experimentController
+    });
 
     var aboutController = new AboutController();
-    var aboutRouter = new AboutRouter({controller:aboutController});
+    var aboutRouter = new AboutRouter({
+        controller: aboutController
+    });
 
     //trigger a resize event for all views
     _.extend(window, Backbone.Events);
-    window.onresize = function() { window.trigger('resize') };
-    window.orientationchange = function() { window.trigger('resize'); }
+    window.onresize = function() {
+        window.trigger('resize')
+    };
+    window.orientationchange = function() {
+        window.trigger('resize');
+    }
 
-    $(document).bind('mousemove',function(e){
+    $(document).bind('mousemove', function(e) {
         window.mouseX = e.pageX;
         window.mouseY = e.pageY;
         window.trigger('mouseMove');
     });
 
-    $(document).bind('touchstart',function(e){
+    $(document).bind('touchstart', function(e) {
         window.mouseX = e.originalEvent.changedTouches[0].pageX;
         window.mouseY = e.originalEvent.changedTouches[0].pageY;
         window.trigger('touchStart');

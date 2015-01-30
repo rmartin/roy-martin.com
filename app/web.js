@@ -10,7 +10,7 @@ app.get('/', function(req, res){
 });
 
 //get list of activities from Strava API based on the Access token in ENV
-app.get('/strava/listActivities', function(req, res){
+app.get('/api/fitness/strava/listActivities', function(req, res){
     strava.athlete.listActivities({'access_token':process.env.STRAVA_ACCESS_TOKEN},function(args,results) {
         res.send(results);
     });

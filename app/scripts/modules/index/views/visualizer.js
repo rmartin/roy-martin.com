@@ -1,4 +1,8 @@
-define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE, CanvasRenderer, JST) {
+define(['app',
+    'THREE',
+    'THREECanvasRenderer',
+    'templates'
+], function(App, THREE, CanvasRenderer, JST) {
     'use strict';
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 
@@ -115,12 +119,9 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                         }
                     } else {
                         if (activeObjects.length !== 0) {
-                            var i;
-                            for (i in activeObjects) {
+                            for (var i in activeObjects) {
                                 // get active object and update scale and 'pause' the animation
                                 var currentObject = asteroidArray[activeObjects[i].object.id];
-
-                                //currentObject.mesh.material = defaultMaterial;
 
                                 // reset the scale
                                 currentObject.mesh.scale.x = 1;
@@ -128,8 +129,8 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                                 currentObject.mesh.scale.z = 1;
 
                                 // resume the animation
-                                currentObject.direction.x = _.random(-10,10)/1000;
-                                currentObject.direction.y = _.random(-10,10)/1000;
+                                currentObject.direction.x = _.random(-10, 10) / 1000;
+                                currentObject.direction.y = _.random(-10, 10) / 1000;
 
                                 // remove the item from the active hover state array
                                 delete activeObjects[i];
@@ -143,8 +144,8 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                 var xPosition = _.random(cameraFOVWidth * -1, cameraFOVWidth),
                     yPosition = _.random(cameraFOVHeight * -1, cameraFOVHeight),
                     zPosition = 0,
-                    xDirection = _.random(-10,10)/1000,
-                    yDirection = _.random(-10,10)/1000,
+                    xDirection = _.random(-10, 10) / 1000,
+                    yDirection = _.random(-10, 10) / 1000,
                     zDirection = 0;
 
                 //TODO: Currently randomly selected mesh types. Convert this to the API call to return a real type.
@@ -201,12 +202,11 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
 
             var webglAvailable = function() {
                 try {
-                    var canvas = document.createElement( 'canvas' );
-                    return !!( window.WebGLRenderingContext && (
-                        canvas.getContext( 'webgl' ) ||
-                        canvas.getContext( 'experimental-webgl' ) )
-                    );
-                } catch ( e ) {
+                    var canvas = document.createElement('canvas');
+                    return !!(window.WebGLRenderingContext && (
+                        canvas.getContext('webgl') ||
+                        canvas.getContext('experimental-webgl')));
+                } catch (e) {
                     return false;
                 }
             }
@@ -221,12 +221,12 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                     camera.position.set(0, 0, cameraDist);
                     //set render engine and scene
                     //detect the appropriate rendering engine
-                    if(webglAvailable()){
+                    if (webglAvailable()) {
                         renderer = new THREE.WebGLRenderer({
                             alpha: true,
                             antialias: true
                         });
-                    }else{
+                    } else {
                         renderer = new THREE.CanvasRenderer({
                             alpha: true,
                             antialias: true
@@ -267,16 +267,16 @@ define(['app', 'THREE', 'THREECanvasRenderer', 'templates'], function(App, THREE
                 }
             }
 
-            var updateWindowSize = function(){
+            var updateWindowSize = function() {
                 sceneWidth = window.innerWidth,
-                sceneHeight = window.innerHeight,
-                sceneAspectRatio = window.innerWidth / window.innerHeight
+                    sceneHeight = window.innerHeight,
+                    sceneAspectRatio = window.innerWidth / window.innerHeight
 
 
                 camera.aspect = sceneAspectRatio;
                 camera.updateProjectionMatrix();
 
-                renderer.setSize( window.innerWidth, window.innerHeight );
+                renderer.setSize(window.innerWidth, window.innerHeight);
                 cameraFOV = camera.fov * Math.PI / 180;
                 cameraFOVHeight = 2 * Math.tan(cameraFOV / 2) * cameraDist;
                 cameraFOVWidth = cameraFOVHeight * sceneAspectRatio;

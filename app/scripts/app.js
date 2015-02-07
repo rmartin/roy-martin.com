@@ -7,7 +7,7 @@ define(['marionette'], function(Marionette) {
         if (Backbone.history) {
             Backbone.history.start();
 
-        
+
 
         }
     });

@@ -2,8 +2,9 @@
   "name": "backboneboilerplate",
   "version": "1.0.0",
   "dependencies": {
+    "css-sprite": "^0.9.0-beta2",
     "gateway": "^1.0.0",
-    "css-sprite": "^0.9.0-beta2"
+    "newrelic": "^1.16.1"
   },
   "devDependencies": {
     "connect-livereload": "~0.3.2",

@@ -243,7 +243,8 @@ module.exports = function (grunt) {
                     '*.php',
                     'includes/**/*',
                     'bower_components/foundation-icon-fonts/*.*',
-                    'web.js'
+                    'web.js',
+                    'newrelic.js'
                     ]
                 }]
             },

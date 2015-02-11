@@ -1,7 +1,7 @@
 define(['app', 'modules/about/views/about'], function(App, Aboutview) {
     App.module('AboutApp', function(AboutApp, App, Backbone, Marionette, $, _) {
 
-        AboutApp.Controller = Marionette.Controller.extend({
+        AboutApp.Controller = Marionette.Object.extend({
             about: function() {
 
                 //render main template

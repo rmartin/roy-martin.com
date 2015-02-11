@@ -1,7 +1,7 @@
 define(['app', 'modules/experiments/collections/codepen', 'modules/experiments/collections/github', 'modules/experiments/views/experiment', 'modules/experiments/views/codepen', 'modules/experiments/views/github'], function(App, CodepenCollection, GithubCollection, ExperimentView, CodepenView, GithubView) {
     App.module('ExperimentApp', function(ExperimentApp, App, Backbone, Marionette, $, _) {
 
-        ExperimentApp.Controller = Marionette.Controller.extend({
+        ExperimentApp.Controller = Marionette.Object.extend({
             experiment: function() {
 
                 //render main template

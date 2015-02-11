@@ -1,7 +1,7 @@
 define(['app', 'modules/thoughts/collections/medium', 'modules/thoughts/views/thought', 'modules/thoughts/views/medium', 'modules/thoughts/views/twitter'], function(App, MediumCollection, ThoughtView, MediumView, TwitterView) {
     App.module('ThoughtApp', function(ThoughtApp, App, Backbone, Marionette, $, _) {
 
-        ThoughtApp.Controller = Marionette.Controller.extend({
+        ThoughtApp.Controller = Marionette.Object.extend({
             thought: function() {
 
                 //render parent view

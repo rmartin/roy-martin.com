@@ -133,13 +133,11 @@ module.exports = function (grunt) {
             'test/spec/{,*/}*.js'
             ]
         },
-        mocha: {
-            all: {
-                options: {
-                    run: false,
-                    src: ['http://localhost:<%= connect.test.options.port %>/index.html'],
-                    reporter: 'Spec'
-                }
+        // mocha command
+        exec: {
+            mocha: {
+                command: 'mocha-phantomjs http://localhost:<%= connect.test.options.port %>/index.html',
+                stdout: true
             }
         },
         requirejs: {
@@ -438,7 +436,7 @@ module.exports = function (grunt) {
                 'createDefaultTemplate',
                 'handlebars',
                 'connect:test',
-                'mocha',
+                'exec:mocha'
                 ];
 
                 if (!isConnected) {

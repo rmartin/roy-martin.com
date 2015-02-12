@@ -12,7 +12,9 @@
     "foundation": "#5.5.0",
     "marionette": "~2.3.0",
     "threejs": "*",
-    "gsap": "~1.15.0"
+    "gsap": "~1.15.0",
+    "mocha": "~2.1.0",
+    "chai": "~2.0.0"
   },
   "devDependencies": {
     "jquery.customSelect": "*",

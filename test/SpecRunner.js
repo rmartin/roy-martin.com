@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: 'scripts/',
+    baseUrl: '../scripts',
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
         underscore: '../bower_components/lodash/dist/lodash',
@@ -51,35 +51,30 @@ require.config({
         THREEProjector: {
             deps: ['THREE'],
             exports: 'THREE.Projector'
-        },
-        mocha: {
-            attach: 'mocha'
         }
     }
 });
 
-// You can do this in the grunt config for each mocha task, see the `options` config
-mocha.setup({
-    ui: 'bdd',
-    ignoreLeaks: true
-});
-
-// Protect from barfs
-console = window.console || function() {};
-
-// Don't track
-window.notrack = true;
-
-// Mocha run helper, used for browser
-var runMocha = function() {
-    mocha.run();
-};
-
+/* require test suite */
 require([
-    'spec/index.js'
-], function(IndexSpec) {
+    'jquery',
+    '/spec/testSuite.js'
+],
+function( $, testSuite ) {
+
     'use strict';
 
-    mocha.run();
+    /* on dom ready require all specs and run */
+    $( function() {
+        require(testSuite.specs, function() {
 
+            if (window.mochaPhantomJS) {
+                mochaPhantomJS.run();
+            }
+            else {
+                mocha.run();
+            }
+
+        });
+    });
 });

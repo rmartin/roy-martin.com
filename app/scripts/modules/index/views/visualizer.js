@@ -39,8 +39,7 @@ define(['app',
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0x5e5e5e,
-                        ambient: 0x000000,
-                        emissive: 0x5e5e5e
+                        ambient: 0x606060
                     })
                 },
                 'blog': {
@@ -49,8 +48,7 @@ define(['app',
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0xFC4C02,
-                        ambient: 0x000000,
-                        emissive: 0xFC4C02
+                        ambient: 0x606060
                     })
                 },
                 'strava': {
@@ -59,8 +57,7 @@ define(['app',
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0xFC4C02,
-                        ambient: 0x000000,
-                        emissive: 0xFC4C02
+                        ambient: 0x606060
 
                     })
                 },
@@ -70,8 +67,7 @@ define(['app',
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0x3b5998,
-                        ambient: 0x000000,
-                        emissive: 0x3b5998
+                        ambient: 0x606060
                     })
                 },
                 'amazon': {
@@ -80,8 +76,7 @@ define(['app',
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0xab1b1c,
-                        ambient: 0x000000,
-                        emissive: 0xab1b1c
+                        ambient: 0x606060
                     })
                 }
             },
@@ -244,9 +239,28 @@ define(['app',
                     $('.background-image').html(renderer.domElement);
 
                     //add lighting
-                    // scene.add(new THREE.AmbientLight(0x000000));
+                    // scene.add(new THREE.AmbientLight(0x606060));
                     headlight = new THREE.PointLight(0x606060, 2, 100);
                     headlight.position.copy(camera.position);
+                    scene.add(headlight);
+
+                    //left / right side of canvas
+                    headlight = new THREE.PointLight(0x606060, 2, 100);
+                    headlight.position.set(-cameraFOVWidth, camera.position.y, 0);
+                    scene.add(headlight);
+
+                    headlight = new THREE.PointLight(0x606060, 2, 100);
+                    headlight.position.set(cameraFOVWidth, camera.position.y, 0);
+                    scene.add(headlight);
+
+                    //top and bottom of canvas
+                    //left / right side of canvas
+                    headlight = new THREE.PointLight(0x606060, 2, 100);
+                    headlight.position.set(camera.position.x, -cameraFOVHeight, 0);
+                    scene.add(headlight);
+
+                    headlight = new THREE.PointLight(0x606060, 2, 100);
+                    headlight.position.set(camera.position.x, cameraFOVHeight, 0);
                     scene.add(headlight);
 
                     //add asteroids to the scene

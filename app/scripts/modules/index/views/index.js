@@ -4,8 +4,9 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
         IndexApp.View = Marionette.ItemView.extend({
             template: JST['app/scripts/modules/index/templates/index.hbs'],
             className: 'view-content',
-            initialize: function() {
-                this.visualizer = new Visualizer();
+            initialize: function(config) {
+                this.collection = config.collection;
+                this.visualizer = new Visualizer({collection: this.collection});
                 this.listenTo(window, 'mouseMove', this.getIntersections);
                 this.listenTo(window, 'touchStart', this.getIntersections);
                 this.listenTo(window, 'resize', this.updateWindowSize);
@@ -33,8 +34,12 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             },
             onRender: function() {
                 ga('send', 'pageview');
-                this.renderScene();
-                this.animateHero();
+
+                // Load the API data before visualizing the results
+                $.when( this.collection.fetch() ).then(function() {
+                    this.renderScene();
+                    this.animateHero();
+                }.bind(this));
             }
         });
     });

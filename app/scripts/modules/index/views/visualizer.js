@@ -84,6 +84,10 @@ define(['app',
 
         IndexApp.Visualizer = (function() {
 
+            var setCollection = function(config){
+                this.collection = config.collection;
+            }
+
             var getIntersections = function() {
                 if ($('.background-image canvas').length !== 0) {
 
@@ -264,7 +268,7 @@ define(['app',
                     scene.add(headlight);
 
                     //add asteroids to the scene
-                    for (var i = 1; i <= sphereCount; i++) {
+                    for (var i = 1; i <= this.collection.length; i++) {
                         var currAsteroid = createNewAsteroid();
                         asteroidArray[currAsteroid.id] = currAsteroid;
                         scene.add(currAsteroid.mesh);
@@ -302,7 +306,8 @@ define(['app',
             return {
                 getIntersections: getIntersections,
                 renderScene: renderScene,
-                updateWindowSize: updateWindowSize
+                updateWindowSize: updateWindowSize,
+                setCollection: setCollection
             };
         });
     });

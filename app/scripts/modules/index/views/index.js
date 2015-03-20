@@ -6,7 +6,8 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             className: 'view-content',
             initialize: function(config) {
                 this.collection = config.collection;
-                this.visualizer = new Visualizer({collection: this.collection});
+                this.visualizer = new Visualizer();
+                this.visualizer.setCollection({collection: this.collection})
                 this.listenTo(window, 'mouseMove', this.getIntersections);
                 this.listenTo(window, 'touchStart', this.getIntersections);
                 this.listenTo(window, 'resize', this.updateWindowSize);

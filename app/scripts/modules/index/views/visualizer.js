@@ -211,12 +211,19 @@ define(['app',
             }
 
             var renderScene = function() {
-                var that = this;
+                var that = this,
+                    skybox = null,
+                    skyboxImage = null,
+                    skyboxImagePrefix = "images/background-spacescape_",
+                    skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
+                    skyGeometry = null,
+                    skyboxMaterialArray = [],
+                    skyboxMaterial = null;
 
                 if ($('.background-image canvas').length === 0) {
                     scene = new THREE.Scene();
                     //set camera and calculate FOV
-                    camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1000);
+                    camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1100);
                     camera.position.set(0, 0, cameraDist);
                     //set render engine and scene
                     //detect the appropriate rendering engine
@@ -266,6 +273,19 @@ define(['app',
                     headlight = new THREE.PointLight(0x606060, 2, 100);
                     headlight.position.set(camera.position.x, cameraFOVHeight, 0);
                     scene.add(headlight);
+
+                    // add skybox to the scene
+
+                    skyGeometry = new THREE.CubeGeometry( 1000, 1000, 1000 );
+                    for(skyboxImage in skyboxImageSuffix){
+                        skyboxMaterialArray.push( new THREE.MeshBasicMaterial({
+                            map: THREE.ImageUtils.loadTexture( skyboxImagePrefix + skyboxImageSuffix[skyboxImage] + ".png" ),
+                            side: THREE.BackSide
+                        }));
+                    }
+                    skyboxMaterial = new THREE.MeshFaceMaterial( skyboxMaterialArray );
+                    skybox = new THREE.Mesh( skyGeometry, skyboxMaterial );
+                    scene.add( skybox );
 
                     //add asteroids to the scene
                     for (var i = 1; i <= this.collection.length; i++) {

@@ -42,7 +42,7 @@ define(['app',
                         ambient: 0x606060
                     })
                 },
-                'blog': {
+                'experiments': {
                     'name': '',
                     'material': new THREE.MeshLambertMaterial({
                         wireframe: true,
@@ -51,31 +51,21 @@ define(['app',
                         ambient: 0x606060
                     })
                 },
-                'strava': {
-                    'name': '',
-                    'material': new THREE.MeshLambertMaterial({
-                        wireframe: true,
-                        wireframeLinewidth: 8,
-                        color: 0xFC4C02,
-                        ambient: 0x606060
-
-                    })
-                },
-                'twitter': {
-                    'name': '',
-                    'material': new THREE.MeshLambertMaterial({
-                        wireframe: true,
-                        wireframeLinewidth: 8,
-                        color: 0x3b5998,
-                        ambient: 0x606060
-                    })
-                },
-                'amazon': {
+                'activity': {
                     'name': '',
                     'material': new THREE.MeshLambertMaterial({
                         wireframe: true,
                         wireframeLinewidth: 8,
                         color: 0xab1b1c,
+                        ambient: 0x606060
+                    })
+                },
+                'thoughts': {
+                    'name': '',
+                    'material': new THREE.MeshLambertMaterial({
+                        wireframe: true,
+                        wireframeLinewidth: 8,
+                        color: 0x3b5998,
                         ambient: 0x606060
                     })
                 }
@@ -139,16 +129,17 @@ define(['app',
                 }
             }
 
-            var createNewAsteroid = function() {
+            var createNewAsteroid = function(config) {
                 var xPosition = _.random(cameraFOVWidth * -1, cameraFOVWidth),
                     yPosition = _.random(cameraFOVHeight * -1, cameraFOVHeight),
                     zPosition = 0,
                     xDirection = _.random(-10, 10) / 1000,
                     yDirection = _.random(-10, 10) / 1000,
-                    zDirection = 0;
+                    zDirection = 0,
+                    model = config.model;
 
                 //TODO: Currently randomly selected mesh types. Convert this to the API call to return a real type.
-                var currentMeshType = apiMeshTypeKeys[_.random(0, apiMeshTypeKeys.length - 1)];
+                var currentMeshType = model.get('type');
                 var currAstroid = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);
                 currAstroid.position.set(xPosition, yPosition, zPosition);
                 currAstroid.receiveShadow = true;
@@ -165,7 +156,8 @@ define(['app',
                     'attributes': {
                         'positiveXDirection': (xDirection > 0),
                         'positiveYDirection': (yDirection > 0)
-                    }
+                    },
+                    'data': model
                 }
             }
 
@@ -288,8 +280,8 @@ define(['app',
                     scene.add( skybox );
 
                     //add asteroids to the scene
-                    for (var i = 1; i <= this.collection.length; i++) {
-                        var currAsteroid = createNewAsteroid();
+                    for (var i = 0; i <= this.collection.length-1; i++) {
+                        var currAsteroid = createNewAsteroid({model : this.collection.models[i]});
                         asteroidArray[currAsteroid.id] = currAsteroid;
                         scene.add(currAsteroid.mesh);
                         objects.push(currAsteroid.mesh);

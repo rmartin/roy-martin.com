@@ -33,15 +33,6 @@ define(['app',
             currLineGeometry,
             currLineMaterial,
             apiMeshTypes = {
-                'default': {
-                    'name': '',
-                    'material': new THREE.MeshLambertMaterial({
-                        wireframe: true,
-                        wireframeLinewidth: 8,
-                        color: 0x5e5e5e,
-                        ambient: 0x606060
-                    })
-                },
                 'experiments': {
                     'name': '',
                     'material': new THREE.MeshLambertMaterial({

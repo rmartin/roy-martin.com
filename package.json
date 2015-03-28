@@ -42,6 +42,9 @@
     "phantomjs": "^1.9.15",
     "time-grunt": "~0.2.8"
   },
+  "scripts": {
+    "test": "grunt build --verbose"
+  },
   "engines": {
     "node": "0.10.x"
   }

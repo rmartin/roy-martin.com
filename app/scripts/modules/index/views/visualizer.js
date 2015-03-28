@@ -129,7 +129,6 @@ define(['app',
                     zDirection = 0,
                     model = config.model;
 
-                //TODO: Currently randomly selected mesh types. Convert this to the API call to return a real type.
                 var currentMeshType = model.get('type');
                 var currAstroid = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);
                 currAstroid.position.set(xPosition, yPosition, zPosition);

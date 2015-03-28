@@ -14,8 +14,8 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             },
             onBeforeRender: function() {
                 //add title and class
-                $('#header-title').html('<a href="http://thoughts.roy-martin.com">Thoughts</a> and <a href="#experiments">Experiments</a>');
-                $('#header-sub-title').html('by <a href="#about">Roy Martin</a>');
+                $('#header-title').html('<a href="http://thoughts.roy-martin.com" class="thoughts">Thoughts</a> and <a href="#experiments" class="experiments">Experiments</a>');
+                $('#header-sub-title').html('by <a href="#about" class="roy-martin">Roy Martin</a>');
                 $('#header-attribution').html('');
                 $('body').attr('class', '').addClass('indexView');
             },
@@ -30,8 +30,8 @@ define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'C
             },
             animateHero: function(){
                 var t1 = new TimelineLite();
-                t1.from('#header-title', .5, {x: (window.innerWidth * -1) + 'px'})
-                .from('#header-sub-title', .5, {x: window.innerWidth + 'px'}, 0);
+                t1.from('#header-title', .5, {y: (window.innerHeight * -1) + 'px'})
+                .from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
             },
             onRender: function() {
                 ga('send', 'pageview');

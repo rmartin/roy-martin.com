@@ -28,6 +28,23 @@ body.indexView {
 
     }
 
+    .header-title-container{
+        a:hover{
+            text-decoration: none;
+        }
+        .thoughts:hover, .thoughts.active{
+            color: #3b5998;
+        }
+
+        .experiments:hover, .experiments.active{
+            color: #ab1b1c;
+        }
+
+        .roy-martin:hover, .roy-martin.active{
+            color: #008000;
+        }
+    }
+
 }
 @media only screen and (min-width: 40.063em) {
 

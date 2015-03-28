@@ -33,24 +33,6 @@ define(['app',
             currLineGeometry,
             currLineMaterial,
             apiMeshTypes = {
-                'experiments': {
-                    'name': '',
-                    'material': new THREE.MeshLambertMaterial({
-                        wireframe: true,
-                        wireframeLinewidth: 8,
-                        color: 0xFC4C02,
-                        ambient: 0x606060
-                    })
-                },
-                'activity': {
-                    'name': '',
-                    'material': new THREE.MeshLambertMaterial({
-                        wireframe: true,
-                        wireframeLinewidth: 8,
-                        color: 0xab1b1c,
-                        ambient: 0x606060
-                    })
-                },
                 'thoughts': {
                     'name': '',
                     'material': new THREE.MeshLambertMaterial({
@@ -59,9 +41,34 @@ define(['app',
                         color: 0x3b5998,
                         ambient: 0x606060
                     })
+                },
+                'experiments': {
+                    'name': '',
+                    'material': new THREE.MeshLambertMaterial({
+                        wireframe: true,
+                        wireframeLinewidth: 8,
+                        color: 0xab1b1c,
+                        ambient: 0x606060
+                    })
+                },
+                'roy-martin': {
+                    'name': '',
+                    'material': new THREE.MeshLambertMaterial({
+                        wireframe: true,
+                        wireframeLinewidth: 8,
+                        color: 0x008000,
+                        ambient: 0x606060
+                    })
                 }
             },
-            apiMeshTypeKeys = _.keys(apiMeshTypes);
+            apiMeshTypeKeys = _.keys(apiMeshTypes),
+            skybox = null,
+            skyboxImage = null,
+            skyboxImagePrefix = "images/background-spacescape_",
+            skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
+            skyGeometry = null,
+            skyboxMaterialArray = [],
+            skyboxMaterial = null;
 
         IndexApp.Visualizer = (function() {
 
@@ -96,6 +103,9 @@ define(['app',
                             currentObject.direction.x = 0;
                             currentObject.direction.y = 0;
                             activeObjects[intersects[0].object.id] = intersects[0];
+
+                            // determine the asteroid type and highlight the appropriate navigation element
+                            $('.header-title-container .' + currentObject.data.get('type')).addClass('active');
                         }
                     } else {
                         if (activeObjects.length !== 0) {
@@ -111,6 +121,8 @@ define(['app',
                                 // resume the animation
                                 currentObject.direction.x = _.random(-10, 10) / 1000;
                                 currentObject.direction.y = _.random(-10, 10) / 1000;
+
+                                $('.header-title-container a').removeClass('active');
 
                                 // remove the item from the active hover state array
                                 delete activeObjects[i];
@@ -151,7 +163,7 @@ define(['app',
                 }
             }
 
-            var updateasteroidsPosition = function() {
+            var updateAsteroidsPosition = function() {
                 for (var currentIndex in asteroidArray) {
                     if (asteroidArray[currentIndex].attributes.positiveYDirection) {
                         if ((asteroidArray[currentIndex].mesh.position.y - asteroidInitialScale) > (cameraFOVHeight)) {
@@ -181,6 +193,11 @@ define(['app',
                 }
             }
 
+            var updateSkyboxPosition = function(){
+                skybox.rotation.x += 0.0005;
+                skybox.rotation.y += 0.0005;
+            }
+
             var webglAvailable = function() {
                 try {
                     var canvas = document.createElement('canvas');
@@ -193,14 +210,7 @@ define(['app',
             }
 
             var renderScene = function() {
-                var that = this,
-                    skybox = null,
-                    skyboxImage = null,
-                    skyboxImagePrefix = "images/background-spacescape_",
-                    skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
-                    skyGeometry = null,
-                    skyboxMaterialArray = [],
-                    skyboxMaterial = null;
+                var that = this;
 
                 if ($('.background-image canvas').length === 0) {
                     scene = new THREE.Scene();
@@ -280,7 +290,8 @@ define(['app',
                     //render view for each animation frame
                     var render = function() {
                         requestAnimationFrame(render);
-                        updateasteroidsPosition();
+                        updateAsteroidsPosition();
+                        updateSkyboxPosition();
                         renderer.render(scene, camera);
                     };
                     render();

@@ -105,6 +105,7 @@ define(['app',
                             activeObjects[intersects[0].object.id] = intersects[0];
 
                             // determine the asteroid type and highlight the appropriate navigation element
+                            $('.background-image canvas').addClass('active');
                             $('.header-title-container .' + currentObject.data.get('type')).addClass('active');
                         }
                     } else {
@@ -122,6 +123,7 @@ define(['app',
                                 currentObject.direction.x = _.random(-10, 10) / 1000;
                                 currentObject.direction.y = _.random(-10, 10) / 1000;
 
+                                $('.background-image canvas').removeClass('active');
                                 $('.header-title-container a').removeClass('active');
 
                                 // remove the item from the active hover state array

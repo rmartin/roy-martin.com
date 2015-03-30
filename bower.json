@@ -1,6 +1,6 @@
 {
-  "name": "backboneboilerplate",
-  "version": "1.0.0",
+  "name": "roy-martin",
+  "version": "0.1.0",
   "dependencies": {
     "jquery": "~2.1.1",
     "lodash": "~2.4.1",

@@ -1,6 +1,6 @@
 {
-  "name": "backboneboilerplate",
-  "version": "1.0.0",
+  "name": "roy-martin",
+  "version": "0.1.0",
   "dependencies": {
     "css-sprite": "^0.9.0-beta2",
     "gateway": "^1.0.0",

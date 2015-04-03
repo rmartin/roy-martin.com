@@ -141,11 +141,12 @@ module.exports = function(grunt) {
             }
         },
         requirejs: {
-            dist: {
+            dev: {
                 // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
                     baseUrl: '<%= yeoman.app %>/scripts',
                     optimize: 'none',
+                    out: '.tmp/scripts/main.js',
                     //bower components here need to match main.js or build will fail
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
@@ -389,18 +390,27 @@ module.exports = function(grunt) {
                 }
             }
         },
-        "babel": {
+        concat: {
             options: {
+                separator: ';',
                 sourceMap: true
             },
             dev: {
+                src: ['<%= yeoman.app %>/scripts/**/*.es6'],
+                dest: '.tmp/scripts/main.js'
+            }
+        },
+        browserify: {
+            dev: {
+                options: {
+                    transform: [
+                        ["babelify", {
+                            "stage": 0
+                        }]
+                    ]
+                },
                 files: {
-                    '.tmp/scripts/main.js': '<%= yeoman.app %>/scripts/main.js'
-                }
-            },
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/scripts/main.js': '<%= yeoman.app %>/scripts/main.js'
+                    ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js"
                 }
             }
         }
@@ -441,7 +451,8 @@ module.exports = function(grunt) {
             'handlebars',
             'sass',
             'grunticon:dev',
-            'babel:dev',
+            // 'concat:dev',
+            'browserify',
             'connect:livereload',
             'open:server',
             'watch'
@@ -467,23 +478,23 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('dev', [
-        'clean:dist',
-        'createDefaultTemplate',
-        'handlebars',
-        'svgmin',
-        'grunticon',
-        'sass',
-        'useminPrepare',
-        'requirejs',
-        'babel:dev',
-        'imagemin',
-        'htmlmin',
-        'concat',
-        'cssmin',
-        'copy:dev',
-        'usemin'
-    ]);
+    // grunt.registerTask('dev', [
+    //     'clean:dist',
+    //     'createDefaultTemplate',
+    //     'handlebars',
+    //     'svgmin',
+    //     'grunticon',
+    //     'sass',
+    //     'useminPrepare',
+    //     'requirejs',
+    //     'babel:dev',
+    //     'imagemin',
+    //     'htmlmin',
+    //     'concat:dev',
+    //     'cssmin',
+    //     'copy:dev',
+    //     'usemin'
+    // ]);
 
     grunt.registerTask('build', [
         'clean:dist',

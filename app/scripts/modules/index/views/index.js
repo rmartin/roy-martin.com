@@ -1,3 +1,4 @@
+// import * as APP2 from 'app';
 define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack', 'templates'], function(App, Visualizer, TweenLite, TimelineLite, CSSPlugin, EasePack, JST) {
     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 

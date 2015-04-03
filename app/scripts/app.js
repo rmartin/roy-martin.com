@@ -1,27 +1,29 @@
-define(['marionette'], function(Marionette) {
-    var App = new Marionette.Application();
-    App.addRegions({
-        main: '#main-content'
-    });
-    App.on('start', function() {
-        if (Backbone.history) {
-            Backbone.history.start();
+// Vendors
+var $ = require('jquery');
+var Backbone = require('backbone');
+Backbone.$ = $;
+var Marionette = require('backbone.marionette');
 
+// app bootstrap
+export var app = new Marionette.Application();
 
-
-        }
-    });
-    App.startSubApp = function(appName, args) {
-        var currentApp = App.module(appName);
-        if (App.currentApp === currentApp) {
-            return;
-        }
-        if (App.currentApp) {
-            App.currentApp.stop();
-        }
-        App.currentApp = currentApp;
-        currentApp.start(args);
-
-    };
-    return App;
+app.addRegions({
+    main: '#main-content'
 });
+app.on('start', function() {
+    if (Backbone.history) {
+        Backbone.history.start();
+    }
+});
+app.startSubApp = function(appName, args) {
+    var currentApp = App.module(appName);
+    if (App.currentApp === currentApp) {
+        return;
+    }
+    if (App.currentApp) {
+        App.currentApp.stop();
+    }
+    App.currentApp = currentApp;
+    currentApp.start(args);
+
+};

@@ -1,22 +1,14 @@
-define([
-    'jquery',
-    'backbone',
-    'modules/index/models/api'
-], function($, Backbone, APIModel) {
-    'use strict';
+import {$, _, Backbone, Marionette, app} from '../../../app.js';
+import {APIModel} from '../models/api.js';
 
-    var APICollection = Backbone.Collection.extend({
-        model: APIModel,
-        url: 'https://api-roy-martin.herokuapp.com/api/v1/all',
-        sync : function(method, collection, options) {
-            options.dataType = "jsonp";
-            return Backbone.sync(method, collection, options);
-        },
-        parse: function(results){
-            return results.data;
-        }
-
-    });
-
-    return APICollection;
+export var APICollection = Backbone.Collection.extend({
+    model: APIModel,
+    url: 'https://api-roy-martin.herokuapp.com/api/v1/all',
+    sync : function(method, collection, options) {
+        options.dataType = "jsonp";
+        return Backbone.sync(method, collection, options);
+    },
+    parse: function(results){
+        return results.data;
+    }
 });

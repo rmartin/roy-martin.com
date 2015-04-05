@@ -1,5 +1,6 @@
 import {app} from './app.js';
-console.log(app);
+import {indexController} from './modules/index/controllers/index.js';
+
 
 // require.config({
 //     paths: {

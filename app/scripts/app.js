@@ -1,8 +1,8 @@
 // Vendors
-var $ = require('jquery');
-var Backbone = require('backbone');
+export var $ = require('jquery');
+export var Backbone = require('backbone');
 Backbone.$ = $;
-var Marionette = require('backbone.marionette');
+export var Marionette = require('backbone.marionette');
 
 // app bootstrap
 export var app = new Marionette.Application();

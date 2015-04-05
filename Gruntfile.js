@@ -38,7 +38,6 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/*.php',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                     '<%= yeoman.app %>/scripts/templates/*.{ejs,mustache,hbs}'
                 ]
@@ -49,7 +48,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint']
+                tasks: ['jshint', 'browserify']
             },
             handlebars: {
                 files: [
@@ -138,35 +137,6 @@ module.exports = function(grunt) {
             mocha: {
                 command: 'mocha-phantomjs http://localhost:<%= connect.test.options.port %>/index.html',
                 stdout: true
-            }
-        },
-        requirejs: {
-            dev: {
-                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
-                options: {
-                    baseUrl: '<%= yeoman.app %>/scripts',
-                    optimize: 'none',
-                    out: '.tmp/scripts/main.js',
-                    //bower components here need to match main.js or build will fail
-                    paths: {
-                        'templates': '../../.tmp/scripts/templates',
-                        'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
-                        'jqueryui': '../../<%= yeoman.app %>/bower_components/jquery-ui/jquery-ui',
-                        'underscore': '../../<%= yeoman.app %>/bower_components/underscore/underscore',
-                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone',
-                        'jqueryCustomSelect': '../../<%= yeoman.app %>/bower_components/jquery.customSelect/jquery.customSelect.min',
-                        'foundation': '../../<%= yeoman.app %>/bower_components/foundation/js/foundation.min',
-                        'handlebars': '../../<%= yeoman.app %>/bower_components/handlebars/handlebars'
-                    },
-                    // TODO: Figure out how to make sourcemaps work with grunt-usemin
-                    // https://github.com/yeoman/grunt-usemin/issues/30
-                    //generateSourceMaps: true,
-                    // required to support SourceMaps
-                    // http://requirejs.org/docs/errors.html#sourcemapcomments
-                    preserveLicenseComments: false,
-                    useStrict: true
-                        //uglify2: {} // https://github.com/mishoo/UglifyJS2
-                }
             }
         },
         useminPrepare: {
@@ -390,16 +360,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        concat: {
-            options: {
-                separator: ';',
-                sourceMap: true
-            },
-            dev: {
-                src: ['<%= yeoman.app %>/scripts/**/*.es6'],
-                dest: '.tmp/scripts/main.js'
-            }
-        },
         browserify: {
             dev: {
                 options: {
@@ -411,6 +371,18 @@ module.exports = function(grunt) {
                 },
                 files: {
                     ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js"
+                }
+            },
+            dist: {
+                options: {
+                    transform: [
+                        ["babelify", {
+                            "stage": 0
+                        }]
+                    ]
+                },
+                files: {
+                    "dist/scripts/main.js": "<%= yeoman.app %>/scripts/main.js"
                 }
             }
         }
@@ -451,7 +423,6 @@ module.exports = function(grunt) {
             'handlebars',
             'sass',
             'grunticon:dev',
-            // 'concat:dev',
             'browserify',
             'connect:livereload',
             'open:server',
@@ -478,24 +449,6 @@ module.exports = function(grunt) {
         }
     });
 
-    // grunt.registerTask('dev', [
-    //     'clean:dist',
-    //     'createDefaultTemplate',
-    //     'handlebars',
-    //     'svgmin',
-    //     'grunticon',
-    //     'sass',
-    //     'useminPrepare',
-    //     'requirejs',
-    //     'babel:dev',
-    //     'imagemin',
-    //     'htmlmin',
-    //     'concat:dev',
-    //     'cssmin',
-    //     'copy:dev',
-    //     'usemin'
-    // ]);
-
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
@@ -505,8 +458,7 @@ module.exports = function(grunt) {
         'sass',
         'css_sprite',
         'useminPrepare',
-        'babel:dist',
-        'requirejs',
+        'browserify',
         'imagemin',
         'htmlmin',
         'concat',

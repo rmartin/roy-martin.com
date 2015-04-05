@@ -1,12 +1,5 @@
-define([
-    'jquery',
-    'backbone'
-], function($, Backbone) {
-    'use strict';
+import {$, _, Backbone, Marionette, app} from '../../../app.js';
 
-    var APIModel = Backbone.Model.extend({
+export var APIModel = Backbone.Model.extend({
 
-    });
-
-    return APIModel;
 });

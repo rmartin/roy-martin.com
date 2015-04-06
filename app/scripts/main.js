@@ -1,5 +1,26 @@
 import {app} from './app.js';
-import {indexController} from './modules/index/controllers/index.js';
+// import {indexController} from './modules/index/controllers/index.js';
+
+app.addRegions({
+    main: '#main-content'
+});
+app.on('start', function() {
+    if (Backbone.history) {
+        Backbone.history.start();
+    }
+});
+app.startSubApp = function(appName, args) {
+    var currentApp = App.module(appName);
+    if (App.currentApp === currentApp) {
+        return;
+    }
+    if (App.currentApp) {
+        App.currentApp.stop();
+    }
+    App.currentApp = currentApp;
+    currentApp.start(args);
+
+};
 
 
 // require.config({

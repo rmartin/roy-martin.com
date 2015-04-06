@@ -1,9 +1,12 @@
 import {app} from './app.js';
-// import {indexController} from './modules/index/controllers/index.js';
+import Backbone from 'backbone';
+import {IndexModule} from './modules/index/module.js';
 
-app.addRegions({
-    main: '#main-content'
-});
+app.module('index', IndexModule);
+app.start();
+Backbone.history.start();
+
+
 app.on('start', function() {
     if (Backbone.history) {
         Backbone.history.start();

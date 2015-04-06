@@ -1,4 +1,4 @@
-import {$, _, Backbone, Marionette, app} from '../../../app.js';
+import Backbone from 'backbone';
 import {APIModel} from '../models/api.js';
 
 export var APICollection = Backbone.Collection.extend({

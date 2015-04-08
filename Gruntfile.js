@@ -47,8 +47,8 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint', 'browserify']
+                files: ['<%= yeoman.app %>/scripts/modules/**/*.js'],
+                tasks: ['browserify']
             },
             handlebars: {
                 files: [
@@ -329,8 +329,8 @@ module.exports = function(grunt) {
         handlebars: {
             compile: {
                 options: {
-                    namespace: 'JST',
-                    amd: true
+                    namespace: false,
+                    commonjs: true
                 },
                 files: {
                     '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/modules/*/templates/*.hbs']
@@ -363,6 +363,7 @@ module.exports = function(grunt) {
         browserify: {
             dev: {
                 options: {
+                    debug: true,
                     transform: [
                         ["babelify", {
                             "stage": 0

@@ -2,19 +2,28 @@ import Marionette from 'backbone.marionette';
 import {IndexRouter} from './router';
 import {IndexController} from './controller';
 
-console.log(Marionette);
-
 export class IndexModule extends Marionette.Module{
 
     initialize(){
-        console.log('init');
+        
     }
 
     onStart(){
-        console.log('start');
+        this.startMediator();
     }
 
     onStop(){
-        console.log('stop');
+        this.stopMediator();
+    }
+
+    startMediator(){
+        var indexController = new IndexController();
+        var indexRouter = new IndexRouter({
+            controller: indexController
+        });
+    }
+
+    stopMediator(){
+        this.controller.stop();
     }
 }

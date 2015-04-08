@@ -52,9 +52,9 @@ module.exports = function(grunt) {
             },
             handlebars: {
                 files: [
-                    '<%= yeoman.app %>/scripts/modules/*/templates/*.hbs'
+                    '<%= yeoman.app %>/scripts/modules/**/*.hbs'
                 ],
-                tasks: ['handlebars']
+                tasks: ['browserify']
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
@@ -326,17 +326,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        handlebars: {
-            compile: {
-                options: {
-                    namespace: false,
-                    commonjs: true
-                },
-                files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/modules/*/templates/*.hbs']
-                }
-            }
-        },
         autoprefixer: {
             // prefix all files
             single_file: {
@@ -365,13 +354,19 @@ module.exports = function(grunt) {
                 options: {
                     debug: true,
                     transform: [
+                        ["hbsfy", {}],
                         ["babelify", {
                             "stage": 0
                         }]
                     ]
                 },
+                js: {
+                    src: ['<%= yeoman.app %>/scripts/main.js','<%= yeoman.app %>/scripts/**/*.hbs'],
+                    dest: '.tmp/scripts/main.js'
+                },
                 files: {
-                    ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js"
+                    ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js",
+
                 }
             },
             dist: {
@@ -411,7 +406,6 @@ module.exports = function(grunt) {
             return grunt.task.run([
                 'clean:server',
                 'createDefaultTemplate',
-                'handlebars',
                 'connect:test',
                 'open:test',
                 'watch'
@@ -421,10 +415,9 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
-            'handlebars',
             'sass',
             'grunticon:dev',
-            'browserify',
+            'browserify:dev',
             'connect:livereload',
             'open:server',
             'watch'
@@ -436,7 +429,6 @@ module.exports = function(grunt) {
         var testTasks = [
             'clean:server',
             'createDefaultTemplate',
-            'handlebars',
             'connect:test',
             'exec:mocha'
         ];
@@ -453,7 +445,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
-        'handlebars',
         'svgmin',
         'grunticon',
         'sass',

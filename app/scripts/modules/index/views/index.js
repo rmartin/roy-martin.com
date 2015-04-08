@@ -3,13 +3,13 @@
 //     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
-import JST from '../../../../../.tmp/scripts/templates';
 import {APICollection} from '../collections/api';
+import template from '../templates/index.hbs'
 
-debugger;
+
 
 export var IndexView = Marionette.ItemView.extend({
-    template: JST['app/scripts/modules/index/templates/index.hbs'],
+    template: template,
     className: 'view-content',
     initialize: function(config) {
         this.collection = config.collection;
@@ -41,13 +41,12 @@ export var IndexView = Marionette.ItemView.extend({
         .from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
     },
     onRender: function() {
-        console.log('yo yo render')
         ga('send', 'pageview');
 
         // Load the API data before visualizing the results
         $.when( this.collection.fetch() ).then(function() {
             // this.renderScene();
-            this.animateHero();
+            // this.animateHero();
         }.bind(this));
     }
 });

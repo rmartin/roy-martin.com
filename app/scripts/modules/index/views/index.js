@@ -3,9 +3,8 @@
 //     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
-import {APICollection} from '../collections/api';
+import APICollection from '../collections/api';
 import template from '../templates/index.hbs'
-
 
 
 export var IndexView = Marionette.ItemView.extend({
@@ -13,8 +12,9 @@ export var IndexView = Marionette.ItemView.extend({
     className: 'view-content',
     initialize: function(config) {
         this.collection = config.collection;
-        // this.visualizer = new Visualizer();
-        // this.visualizer.setCollection({collection: this.collection})
+        this.visualizer = config.visualizer;
+
+        this.visualizer.setCollection({collection: this.collection})
         // this.listenTo(window, 'mouseMove', this.getIntersections);
         // this.listenTo(window, 'touchStart', this.getIntersections);
         // this.listenTo(window, 'resize', this.updateWindowSize);
@@ -27,26 +27,26 @@ export var IndexView = Marionette.ItemView.extend({
         $('body').attr('class', '').addClass('indexView');
     },
     getIntersections: function() {
-        // this.visualizer.getIntersections();
+        this.visualizer.getIntersections();
     },
     updateWindowSize: function() {
-        // this.visualizer.updateWindowSize();
+        this.visualizer.updateWindowSize();
     },
     renderScene: function() {
-        // this.visualizer.renderScene();
+        this.visualizer.renderScene();
     },
     animateHero: function(){
-        var t1 = new TimelineLite();
-        t1.from('#header-title', .5, {y: (window.innerHeight * -1) + 'px'})
-        .from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
+        // var t1 = new TimelineLite();
+        // t1.from('#header-title', .5, {y: (window.innerHeight * -1) + 'px'})
+        // .from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
     },
     onRender: function() {
         ga('send', 'pageview');
 
         // Load the API data before visualizing the results
         $.when( this.collection.fetch() ).then(function() {
-            // this.renderScene();
-            // this.animateHero();
+            this.renderScene();
+            this.animateHero();
         }.bind(this));
     }
 });

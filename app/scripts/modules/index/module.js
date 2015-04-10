@@ -5,7 +5,7 @@ import {IndexController} from './controller';
 export class IndexModule extends Marionette.Module{
 
     initialize(){
-        
+
     }
 
     onStart(){
@@ -20,6 +20,7 @@ export class IndexModule extends Marionette.Module{
         var indexController = new IndexController();
         var indexRouter = new IndexRouter({
             controller: indexController
+
         });
     }
 

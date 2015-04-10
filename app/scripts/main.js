@@ -1,3 +1,5 @@
+import $ from 'jquery';
+import _ from 'lodash';
 import {app} from './app.js';
 import Backbone from 'backbone';
 import {IndexModule} from './modules/index/module.js';
@@ -24,6 +26,27 @@ app.startSubApp = function(appName, args) {
     currentApp.start(args);
 
 };
+
+//trigger a resize event for all views
+_.extend(window, Backbone.Events);
+window.onresize = function() {
+    window.trigger('resize')
+};
+window.orientationchange = function() {
+    window.trigger('resize');
+}
+
+$(document).bind('mousemove', function(e) {
+    window.mouseX = e.pageX;
+    window.mouseY = e.pageY;
+    window.trigger('mouseMove');
+});
+
+$(document).bind('touchstart', function(e) {
+    window.mouseX = e.originalEvent.changedTouches[0].pageX;
+    window.mouseY = e.originalEvent.changedTouches[0].pageY;
+    window.trigger('touchStart');
+});
 
 
 // require.config({
@@ -119,26 +142,7 @@ app.startSubApp = function(appName, args) {
     //     controller: aboutController
     // });
     //
-    // //trigger a resize event for all views
-    // _.extend(window, Backbone.Events);
-    // window.onresize = function() {
-    //     window.trigger('resize')
-    // };
-    // window.orientationchange = function() {
-    //     window.trigger('resize');
-    // }
-    //
-    // $(document).bind('mousemove', function(e) {
-    //     window.mouseX = e.pageX;
-    //     window.mouseY = e.pageY;
-    //     window.trigger('mouseMove');
-    // });
-    //
-    // $(document).bind('touchstart', function(e) {
-    //     window.mouseX = e.originalEvent.changedTouches[0].pageX;
-    //     window.mouseY = e.originalEvent.changedTouches[0].pageY;
-    //     window.trigger('touchStart');
-    // });
+
 
     //load the application
     // App.start();

@@ -1,6 +1,7 @@
 /**
 * @author mrdoob / http://mrdoob.com/
 */
+import THREE from 'three';
 
 THREE.SpriteCanvasMaterial = function ( parameters ) {
 

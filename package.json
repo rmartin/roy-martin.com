@@ -4,7 +4,9 @@
   "dependencies": {
     "css-sprite": "^0.9.0-beta2",
     "gateway": "^1.0.0",
-    "newrelic": "^1.16.1"
+    "lodash": "^3.6.0",
+    "newrelic": "^1.16.1",
+    "three": "^0.70.0"
   },
   "devDependencies": {
     "babelify": "^6.0.2",

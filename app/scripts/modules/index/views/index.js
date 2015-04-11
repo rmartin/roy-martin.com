@@ -2,7 +2,12 @@
 // define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack', 'templates'], function(App, Visualizer, TweenLite, TimelineLite, CSSPlugin, EasePack, JST) {
 //     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 import $ from 'jquery';
+import _ from 'lodash';
+import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
+import RadioShim from '../../../vendor/radio.shim.js';
+import Radio from 'backbone.radio';
+
 import APICollection from '../collections/api';
 import template from '../templates/index.hbs';
 import TimelineLite from 'gsap';
@@ -16,9 +21,17 @@ export var IndexView = Marionette.ItemView.extend({
         this.visualizer = config.visualizer;
 
         this.visualizer.setCollection({collection: this.collection})
-        // this.listenTo(window, 'mouseMove', this.getIntersections);
-        // this.listenTo(window, 'touchStart', this.getIntersections);
-        // this.listenTo(window, 'resize', this.updateWindowSize);
+        this.visualizerChannel = Backbone.Radio.channel('visualizer');
+
+        this.visualizerChannel.on('visualizer:mouseMove', function() {
+            this.getIntersections();
+        }.bind(this));
+        this.visualizerChannel.on('visualizer:touchStart', function() {
+            this.getIntersections();
+        }.bind(this));
+        this.visualizerChannel.on('visualizer:resize', function() {
+            this.updateWindowSize();
+        }.bind(this));
     },
     onBeforeRender: function() {
         //add title and class

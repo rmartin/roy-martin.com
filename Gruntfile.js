@@ -48,13 +48,13 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/modules/**/*.js'],
-                tasks: ['browserify']
+                tasks: ['browserify:dev']
             },
             handlebars: {
                 files: [
                     '<%= yeoman.app %>/scripts/modules/**/*.hbs'
                 ],
-                tasks: ['browserify']
+                tasks: ['browserify:dev']
             },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],

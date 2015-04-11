@@ -4,7 +4,8 @@
 import $ from 'jquery';
 import Marionette from 'backbone.marionette';
 import APICollection from '../collections/api';
-import template from '../templates/index.hbs'
+import template from '../templates/index.hbs';
+import TimelineLite from 'gsap';
 
 
 export var IndexView = Marionette.ItemView.extend({
@@ -37,8 +38,9 @@ export var IndexView = Marionette.ItemView.extend({
     },
     animateHero: function(){
         // var t1 = new TimelineLite();
-        // t1.from('#header-title', .5, {y: (window.innerHeight * -1) + 'px'})
-        // .from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
+
+        TimelineLite.from('#header-title', .5, {y: (window.innerHeight * -1) + 'px'});
+        TimelineLite.from('#header-sub-title', .5, {y: window.innerHeight + 'px'}, 0);
     },
     onRender: function() {
         ga('send', 'pageview');

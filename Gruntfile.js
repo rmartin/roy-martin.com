@@ -371,14 +371,21 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
+                    debug: true,
                     transform: [
+                        ["hbsfy", {}],
                         ["babelify", {
                             "stage": 0
                         }]
                     ]
                 },
+                js: {
+                    src: ['<%= yeoman.app %>/scripts/main.js','<%= yeoman.app %>/scripts/**/*.hbs'],
+                    dest: 'dist/scripts/main.js'
+                },
                 files: {
-                    "dist/scripts/main.js": "<%= yeoman.app %>/scripts/main.js"
+                    "dist/scripts/main.js": "<%= yeoman.app %>/scripts/main.js",
+
                 }
             }
         }
@@ -450,12 +457,11 @@ module.exports = function(grunt) {
         'sass',
         'css_sprite',
         'useminPrepare',
-        'browserify',
+        'browserify:dist',
         'imagemin',
         'htmlmin',
-        'concat',
         'cssmin',
-        'uglify',
+        // 'uglify',
         'copy',
         'autoprefixer',
         'usemin'

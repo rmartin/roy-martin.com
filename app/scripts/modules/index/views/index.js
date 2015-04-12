@@ -1,6 +1,3 @@
-// import * as APP2 from 'app';
-// define(['app', 'modules/index/views/visualizer', 'TweenLite', 'TimelineLite', 'CSSPlugin', 'EasePack', 'templates'], function(App, Visualizer, TweenLite, TimelineLite, CSSPlugin, EasePack, JST) {
-//     App.module('IndexApp', function(IndexApp, App, Backbone, Marionette, $, _) {
 import $ from 'jquery';
 import _ from 'lodash';
 import Backbone from 'backbone';
@@ -11,7 +8,6 @@ import Radio from 'backbone.radio';
 import APICollection from '../collections/api';
 import template from '../templates/index.hbs';
 import TimelineLite from 'gsap';
-
 
 export var IndexView = Marionette.ItemView.extend({
     template: template,
@@ -65,6 +61,3 @@ export var IndexView = Marionette.ItemView.extend({
         }.bind(this));
     }
 });
-
-//     return App.IndexApp.View;
-// });

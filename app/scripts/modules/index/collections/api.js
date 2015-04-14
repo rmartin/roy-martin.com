@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import {APIModel} from '../models/api.js';
 
-export var APICollection = Backbone.Collection.extend({
+export default class APICollection extends Backbone.Collection{
     model: APIModel,
     url: 'https://api-roy-martin.herokuapp.com/api/v1/all',
     sync : function(method, collection, options) {

@@ -28,12 +28,6 @@ app.startSubApp = function(appName, args) {
 
 
     // $(document).foundation();
-    //
-    // var indexController = new IndexController();
-    // var indexRoutes = new IndexRoutes({
-    //     controller: indexController
-    // });
-
     // do no evil
     // var thoughtController = new ThoughtController();
     // var thoughtRoutes = new ThoughtRoutes({

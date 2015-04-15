@@ -2,11 +2,11 @@ import Backbone from 'backbone';
 import {APIModel} from '../models/api.js';
 
 export class APICollection extends Backbone.Collection{
-    model(){
+    get model(){
         return APIModel;
     }
 
-    url(){
+    get url(){
         return 'https://api-roy-martin.herokuapp.com/api/v1/all';
     }
 

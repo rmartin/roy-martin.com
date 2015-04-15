@@ -4,14 +4,14 @@ import {APICollection} from './collections/api';
 import {IndexView} from './views/index';
 import * as IndexVisualizer from './views/visualizer';
 
-export var IndexController = Marionette.Object.extend({
-    onStart: function() {
+export class IndexController extends Marionette.Object{
+    onStart() {
 
-    },
-    index: function() {
+    }
+    index() {
         var apiCollection = new APICollection();
 
         var indexView = new IndexView({collection: apiCollection,visualizer: IndexVisualizer});
         app.main.show(indexView);
     }
-});
+}

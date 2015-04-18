@@ -21,7 +21,7 @@ export class AboutModule extends Marionette.Module{
     }
 
     startMediator(){
-        
+        console.log(AboutController)
         var aboutController = new AboutController();
         var aboutRouter = new AboutRouter({
             controller: aboutController

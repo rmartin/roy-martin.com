@@ -6,7 +6,6 @@ import {AboutModule} from './modules/about/module.js';
 app.module('index', IndexModule);
 app.module('about', AboutModule);
 app.start();
-Backbone.history.start();
 
 
 

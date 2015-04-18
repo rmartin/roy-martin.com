@@ -1,6 +1,6 @@
 import Marionette from 'backbone.marionette';
 import {app} from '../../app';
-import {IndexView} from './views/about';
+import {AboutView} from './views/about';
 
 export class AboutController extends Marionette.Object{
     onStart() {

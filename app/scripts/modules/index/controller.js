@@ -6,7 +6,7 @@ import * as IndexVisualizer from './views/visualizer';
 
 export class IndexController extends Marionette.Object{
     onStart() {
-
+debugger;
     }
     index() {
         var apiCollection = new APICollection();

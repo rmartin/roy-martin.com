@@ -3,8 +3,8 @@ import Backbone from 'backbone';
 import {IndexModule} from './modules/index/module.js';
 import {AboutModule} from './modules/about/module.js';
 
-app.module('index', IndexModule);
-app.module('about', AboutModule);
+indexModule = new IndexModule().start();
+aboutModule = new AboutModule().start();
 app.start();
 
 

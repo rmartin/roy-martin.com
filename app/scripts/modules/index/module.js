@@ -8,18 +8,15 @@ import Radio from 'backbone.radio';
 import {IndexRouter} from './router';
 import {IndexController} from './controller';
 
-export class IndexModule extends Marionette.Module{
+export class IndexModule {
 
-    initialize(){
 
-    }
-
-    onStart(){
+    export start(){
         this.startMediator();
         this.startListeners();
     }
 
-    onStop(){
+    export stop(){
         this.stopMediator();
     }
 

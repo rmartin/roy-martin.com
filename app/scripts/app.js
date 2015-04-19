@@ -15,15 +15,3 @@ app.on('start', function() {
         Backbone.history.start();
     }
 });
-app.startSubApp = function(appName, args) {
-    var currentApp = App.module(appName);
-    if (App.currentApp === currentApp) {
-        return;
-    }
-    if (App.currentApp) {
-        App.currentApp.stop();
-    }
-    App.currentApp = currentApp;
-    currentApp.start(args);
-
-};

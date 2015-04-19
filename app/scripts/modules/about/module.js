@@ -9,19 +9,18 @@ import {AboutController} from './controller';
 import {AboutRouter} from './router';
 
 
-export class AboutModule extends Marionette.Module{
+export class AboutModule {
 
-    onStart(){
+    start(){
         this.startMediator();
         this.startListeners();
     }
 
-    onStop(){
+    stop(){
         this.stopMediator();
     }
 
     startMediator(){
-        console.log(AboutController)
         var aboutController = new AboutController();
         var aboutRouter = new AboutRouter({
             controller: aboutController

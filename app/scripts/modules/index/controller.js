@@ -4,10 +4,7 @@ import {APICollection} from './collections/api';
 import {IndexView} from './views/index';
 import * as IndexVisualizer from './views/visualizer';
 
-export class IndexController extends Marionette.Object{
-    onStart() {
-debugger;
-    }
+export class IndexController{
     index() {
         var apiCollection = new APICollection();
 

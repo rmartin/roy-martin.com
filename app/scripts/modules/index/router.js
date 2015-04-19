@@ -4,7 +4,6 @@ import Marionette from 'backbone.marionette';
 export class IndexRouter extends Marionette.AppRouter{
     constructor(options) {
         super(options);
-        this._getController().triggerMethod('start');
     }
     get appRoutes() {
         return {

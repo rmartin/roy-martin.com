@@ -8,15 +8,18 @@ import Radio from 'backbone.radio';
 import {IndexRouter} from './router';
 import {IndexController} from './controller';
 
+
 export class IndexModule {
+    constructor(){
+        this.start();
+    }
 
-
-    export start(){
+    start(){
         this.startMediator();
         this.startListeners();
     }
 
-    export stop(){
+    stop(){
         this.stopMediator();
     }
 

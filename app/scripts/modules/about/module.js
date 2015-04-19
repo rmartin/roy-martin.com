@@ -10,6 +10,9 @@ import {AboutRouter} from './router';
 
 
 export class AboutModule {
+    constructor(){
+        this.start();
+    }
 
     start(){
         this.startMediator();

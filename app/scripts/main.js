@@ -3,29 +3,6 @@ import Backbone from 'backbone';
 import {IndexModule} from './modules/index/module.js';
 import {AboutModule} from './modules/about/module.js';
 
-indexModule = new IndexModule().start();
-aboutModule = new AboutModule().start();
+new IndexModule();
+new AboutModule();
 app.start();
-
-
-
-
-
-
-    // $(document).foundation();
-    // do no evil
-    // var thoughtController = new ThoughtController();
-    // var thoughtRoutes = new ThoughtRoutes({
-    //     controller: thoughtController
-    // });
-    //
-    // var experimentController = new ExperimentController();
-    // var experimentRoutes = new ExperimentRoutes({
-    //     controller: experimentController
-    // });
-    //
-    // var aboutController = new AboutController();
-    // var aboutRouter = new AboutRouter({
-    //     controller: aboutController
-    // });
-    //

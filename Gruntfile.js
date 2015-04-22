@@ -357,7 +357,8 @@ module.exports = function(grunt) {
                         ["hbsfy", {}],
                         ["babelify", {
                             "stage": 0
-                        }]
+                        }],
+                        ["exorcist", {".tmp/scripts/main.js.map"}]
                     ]
                 },
                 js: {

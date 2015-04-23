@@ -5,10 +5,10 @@ $row-width: 72.500em;
 Vendor level styling
 ----------------------------------------------------------------------------------------
 */
-$fi-path: "foundation-icon-fonts";
-@import "foundation/scss/normalize";
-@import "foundation/scss/foundation";
-@import "foundation-icon-fonts/_foundation-icons";
+$fi-path: "../bower_components/foundation-icon-fonts";
+@import "../bower_components/foundation/scss/normalize";
+@import "../bower_components/foundation/scss/foundation";
+@import "../bower_components/foundation-icon-fonts/_foundation-icons";
 /**
 ----------------------------------------------------------------------------------------
 Base level styling

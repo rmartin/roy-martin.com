@@ -1,13 +1,62 @@
-{
-  "version": 3,
-  "sources": [
-    "/Users/roymartin/Code/www/roy-martin/app/scripts/modules/index/IndexModule.js"
-  ],
-  "names": [],
-  "mappings": ";;;;;;;;;;;;iBAAc,QAAQ;;;;sBACR,QAAQ;;;;wBACD,UAAU;;;;0BACR,qBAAqB;;;;yBACtB,4BAA4B;;;;qBAChC,gBAAgB;;;;2BAER,eAAe;;+BACX,mBAAmB;;IAGpC,WAAW;AACT,aADF,WAAW,GACP;8BADJ,WAAW;;AAEhB,YAAI,CAAC,KAAK,EAAE,CAAC;KAChB;;iBAHQ,WAAW;;eAKf,iBAAE;AACH,gBAAI,CAAC,aAAa,EAAE,CAAC;AACrB,gBAAI,CAAC,cAAc,EAAE,CAAC;SACzB;;;eAEG,gBAAE;AACF,gBAAI,CAAC,YAAY,EAAE,CAAC;SACvB;;;eAEY,yBAAE;AACX,gBAAI,eAAe,GAAG,qBAlBtB,eAAe,EAkB4B,CAAC;AAC5C,gBAAI,WAAW,GAAG,iBApBlB,WAAW,CAoBuB;AAC9B,0BAAU,EAAE,eAAe;;aAE9B,CAAC,CAAC;SACN;;;eAEa,0BAAE;;AAEZ,gBAAI,iBAAiB,GAAG,sBAAS,KAAK,CAAC,OAAO,CAAC,YAAY,CAAC,CAAC;;AAE7D,gCAAE,MAAM,CAAC,MAAM,EAAE,sBAAS,MAAM,CAAC,CAAC;AAClC,kBAAM,CAAC,QAAQ,GAAG,YAAW;AACzB,iCAAiB,CAAC,OAAO,CAAC,mBAAmB,CAAC,CAAC;aAClD,CAAC;AACF,kBAAM,CAAC,iBAAiB,GAAG,YAAW;AAClC,iCAAiB,CAAC,OAAO,CAAC,mBAAmB,CAAC,CAAC;aAClD,CAAA;;AAED,2BAAE,QAAQ,CAAC,CAAC,IAAI,CAAC,WAAW,EAAE,UAAS,CAAC,EAAE;AACtC,sBAAM,CAAC,MAAM,GAAG,CAAC,CAAC,KAAK,CAAC;AACxB,sBAAM,CAAC,MAAM,GAAG,CAAC,CAAC,KAAK,CAAC;AACxB,iCAAiB,CAAC,OAAO,CAAC,sBAAsB,CAAC,CAAC;aACrD,CAAC,CAAC;;AAEH,2BAAE,QAAQ,CAAC,CAAC,IAAI,CAAC,YAAY,EAAE,UAAS,CAAC,EAAE;AACvC,sBAAM,CAAC,MAAM,GAAG,CAAC,CAAC,aAAa,CAAC,cAAc,CAAC,CAAC,CAAC,CAAC,KAAK,CAAC;AACxD,sBAAM,CAAC,MAAM,GAAG,CAAC,CAAC,aAAa,CAAC,cAAc,CAAC,CAAC,CAAC,CAAC,KAAK,CAAC;AACxD,iCAAiB,CAAC,OAAO,CAAC,uBAAuB,CAAC,CAAC;aACtD,CAAC,CAAC;SACN;;;eAEW,wBAAE;AACV,gBAAI,CAAC,UAAU,CAAC,IAAI,EAAE,CAAC;SAC1B;;;WAjDQ,WAAW;;;QAAX,WAAW,GAAX,WAAW",
-  "file": "/Users/roymartin/Code/www/roy-martin/app/scripts/modules/index/IndexModule.js",
-  "sourcesContent": [
-    "import $ from 'jquery';\nimport _ from 'lodash';\nimport Backbone from 'backbone';\nimport Marionette from 'backbone.marionette';\nimport RadioShim from '../../vendor/radio.shim.js';\nimport Radio from 'backbone.radio';\n\nimport {IndexRouter} from './IndexRouter';\nimport {IndexController} from './IndexController';\n\n\nexport class IndexModule {\n    constructor(){\n        this.start();\n    }\n\n    start(){\n        this.startMediator();\n        this.startListeners();\n    }\n\n    stop(){\n        this.stopMediator();\n    }\n\n    startMediator(){\n        var indexController = new IndexController();\n        var indexRouter = new IndexRouter({\n            controller: indexController\n\n        });\n    }\n\n    startListeners(){\n        //trigger a resize event for all views\n        var visualizerChannel = Backbone.Radio.channel('visualizer');\n\n        _.extend(window, Backbone.Events);\n        window.onresize = function() {\n            visualizerChannel.trigger('visualizer:resize');\n        };\n        window.orientationchange = function() {\n            visualizerChannel.trigger('visualizer:resize');\n        }\n\n        $(document).bind('mousemove', function(e) {\n            window.mouseX = e.pageX;\n            window.mouseY = e.pageY;\n            visualizerChannel.trigger('visualizer:mouseMove');\n        });\n\n        $(document).bind('touchstart', function(e) {\n            window.mouseX = e.originalEvent.changedTouches[0].pageX;\n            window.mouseY = e.originalEvent.changedTouches[0].pageY;\n            visualizerChannel.trigger('visualizer:touchStart');\n        });\n    }\n\n    stopMediator(){\n        this.controller.stop();\n    }\n}\n"
-  ],
-  "sourceRoot": ""
+import $ from 'jquery';
+import _ from 'lodash';
+import Backbone from 'backbone';
+import Marionette from 'backbone.marionette';
+import RadioShim from '../../vendor/radio.shim.js';
+import Radio from 'backbone.radio';
+
+import {IndexRouter} from './IndexRouter.js';
+import {IndexController} from './IndexController.js';
+
+
+export class IndexModule {
+    constructor(){
+        this.start();
+    }
+
+    start(){
+        this.startMediator();
+        this.startListeners();
+    }
+
+    stop(){
+        this.stopMediator();
+    }
+
+    startMediator(){
+        var indexController = new IndexController();
+        var indexRouter = new IndexRouter({
+            controller: indexController
+
+        });
+    }
+
+    startListeners(){
+        //trigger a resize event for all views
+        var visualizerChannel = Backbone.Radio.channel('visualizer');
+
+        _.extend(window, Backbone.Events);
+        window.onresize = function() {
+            visualizerChannel.trigger('visualizer:resize');
+        };
+        window.orientationchange = function() {
+            visualizerChannel.trigger('visualizer:resize');
+        }
+
+        $(document).bind('mousemove', function(e) {
+            window.mouseX = e.pageX;
+            window.mouseY = e.pageY;
+            visualizerChannel.trigger('visualizer:mouseMove');
+        });
+
+        $(document).bind('touchstart', function(e) {
+            window.mouseX = e.originalEvent.changedTouches[0].pageX;
+            window.mouseY = e.originalEvent.changedTouches[0].pageY;
+            visualizerChannel.trigger('visualizer:touchStart');
+        });
+    }
+
+    stopMediator(){
+        this.controller.stop();
+    }
 }

@@ -13,6 +13,11 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
+    // load exorcist for source map
+    require('exorcist')(grunt);
+
+    var stream = require('stream');
+
     grunt.loadNpmTasks('css-sprite');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-autoprefixer');
@@ -23,6 +28,17 @@ module.exports = function(grunt) {
     var yeomanConfig = {
         app: 'app',
         dist: 'dist'
+    };
+
+    var createSourceMap = function(err, src, next) {
+        var mapfile = grunt.template.process('<%= folders.output %>/<%= filenames.js %>.map');
+        var s = new stream.Readable();
+        s._read = function noop() {};
+        s.push(src);
+        s.push(null);
+        s.pipe(exorcist(mapfile).on('finish', function() {
+            next(err, src);
+        }));
     };
 
     grunt.initConfig({
@@ -357,18 +373,17 @@ module.exports = function(grunt) {
                         ["hbsfy", {}],
                         ["babelify", {
                             "stage": 0
-                        }],
-                        ["exorcist", {".tmp/scripts/main.js.map"}]
+                        }]
                     ]
                 },
                 js: {
-                    src: ['<%= yeoman.app %>/scripts/main.js','<%= yeoman.app %>/scripts/**/*.hbs'],
+                    src: ['<%= yeoman.app %>/scripts/main.js', '<%= yeoman.app %>/scripts/**/*.hbs'],
                     dest: '.tmp/scripts/main.js'
                 },
                 files: {
                     ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js",
-
-                }
+                },
+                postBundleCB: createSourceMap
             },
             dist: {
                 options: {
@@ -381,7 +396,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 js: {
-                    src: ['<%= yeoman.app %>/scripts/main.js','<%= yeoman.app %>/scripts/**/*.hbs'],
+                    src: ['<%= yeoman.app %>/scripts/main.js', '<%= yeoman.app %>/scripts/**/*.hbs'],
                     dest: 'dist/scripts/main.js'
                 },
                 files: {

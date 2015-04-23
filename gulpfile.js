@@ -1,16 +1,58 @@
 /*global -$ */
 'use strict';
-// generated on 2015-04-22 using generator-gulp-webapp 0.3.0
+var gulp = require('gulp');
+var $ = require('gulp-load-plugins')();
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
+
+// JavaScript tooling to combine updates
 var watchify = require('watchify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gutil = require('gulp-util');
+var assign = require('lodash.assign');
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
+
+// add custom browserify options here
+var browserifyCustomOpts = {
+    entries: './app/scripts/main.js',
+    debug: true,
+    // defining transforms here will avoid crashing your stream
+    transform: [
+        ["hbsfy", {}],
+        ["babelify", {
+            "stage": 0
+        }]
+    ]
+};
+
+// JavaScript compilation with browserify, handlebars and babel
+var watchifyOpts = assign({}, watchify.args, browserifyCustomOpts);
+var b = watchify(browserify(watchifyOpts));
+b.on('update', function() {
+    browserifyBundle(b);
+});
+
+gulp.task('scripts', function() {
+    browserifyBundle();
+});
+
+function browserifyBundle() {
+    return b.bundle()
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe($.sourcemaps.init({
+            loadMaps: true
+        }))
+        .on('error', gutil.log)
+        .pipe($.sourcemaps.write('./'))
+        .pipe(gulp.dest('.tmp/scripts/'))
+        .pipe(reload({
+            stream: true
+        }));
+}
+
 
 gulp.task('styles', function() {
     return gulp.src('app/styles/main.scss')
@@ -33,30 +75,6 @@ gulp.task('styles', function() {
         }));
 });
 
-gulp.task('scripts', function() {
-    // set up the browserify instance on a task basis
-    var b = browserify({
-        entries: './app/scripts/main.js',
-        debug: true,
-        // defining transforms here will avoid crashing your stream
-        transform: [
-            ["hbsfy", {}],
-            ["babelify", {
-                "stage": 0
-            }]
-        ]
-    });
-
-    return b.bundle()
-        .pipe(source('main.js'))
-        .pipe(buffer())
-        .pipe($.sourcemaps.init({
-            loadMaps: true
-        }))
-        .on('error', gutil.log)
-        .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest('.tmp/scripts/'));
-});
 
 gulp.task('jshint', function() {
     return gulp.src('app/scripts/**/*.js')
@@ -68,18 +86,6 @@ gulp.task('jshint', function() {
         .pipe($.jshint.reporter('jshint-stylish'))
         .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
-
-// gulp.task('templates', function() {
-//     gulp.src('app/scripts/templates/*.hbs')
-//         .pipe($.handlebars())
-//         .pipe($.wrap('Handlebars.template(<%= contents %>)'))
-//         .pipe($.declare({
-//             namespace: 'MyApp.templates',
-//             noRedeclare: true, // Avoid duplicate declarations
-//         }))
-//         .pipe($.concat('templates.js'))
-//         .pipe(gulp.dest('.tmp/templates/'));
-// });
 
 gulp.task('html', ['styles'], function() {
     var assets = $.useref.assets({
@@ -134,7 +140,8 @@ gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'scripts', 'fonts'], function() {
     browserSync({
-        notify: false,
+        notify: true,
+        online: true,
         port: 9000,
         server: {
             baseDir: ['.tmp', 'app'],
@@ -147,7 +154,6 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], function() {
     // watch for changes
     gulp.watch([
         'app/*.html',
-        'app/scripts/**/*.js',
         'app/images/**/*',
         '.tmp/fonts/**/*'
     ]).on('change', reload);
@@ -155,6 +161,7 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], function() {
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
+
 });
 
 // inject bower components

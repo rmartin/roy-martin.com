@@ -53,6 +53,7 @@
     "load-grunt-tasks": "~0.3.0",
     "mocha-phantomjs": "^3.5.3",
     "phantomjs": "^1.9.15",
+    "stream": "0.0.2",
     "time-grunt": "~0.2.8",
     "yo": "1.4.6"
   },

@@ -1,13 +1,316 @@
-{
-  "version": 3,
-  "sources": [
-    "/Users/roymartin/Code/www/roy-martin/app/scripts/modules/index/views/VisualizerView.js"
-  ],
-  "names": [],
-  "mappings": "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",
-  "file": "/Users/roymartin/Code/www/roy-martin/app/scripts/modules/index/views/VisualizerView.js",
-  "sourcesContent": [
-    "import $ from 'jquery';\nimport _ from 'lodash';\nimport THREE from 'three';\nimport THREECanvasRenderer from '../../../vendor/threejs/CanvasRenderer';\n\n//number of spheres to generate\nvar sphereCount = 20,\n    scene,\n    sceneWidth = window.innerWidth,\n    sceneHeight = window.innerHeight,\n    sceneAspectRatio = (sceneWidth / sceneHeight),\n    camera,\n    cameraDist = 20,\n    cameraFOV,\n    cameraFOVWidth,\n    cameraFOVHeight,\n    headlight,\n    renderer,\n    projector,\n    objects = [],\n    activeObjects = {},\n    asteroidArray = [],\n    asteroidInitialScale = 0.5,\n    vector = new THREE.Vector3(),\n    raycaster = new THREE.Raycaster(),\n    dir = new THREE.Vector3(),\n    intersects,\n    currentLines = [],\n    currLine,\n    currLineGeometry,\n    currLineMaterial,\n    apiMeshTypes = {\n        'thoughts': {\n            'name': '',\n            'material': new THREE.MeshLambertMaterial({\n                wireframe: true,\n                wireframeLinewidth: 8,\n                color: 0x3b5998,\n                ambient: 0x606060\n            })\n        },\n        'experiments': {\n            'name': '',\n            'material': new THREE.MeshLambertMaterial({\n                wireframe: true,\n                wireframeLinewidth: 8,\n                color: 0xab1b1c,\n                ambient: 0x606060\n            })\n        },\n        'roy-martin': {\n            'name': '',\n            'material': new THREE.MeshLambertMaterial({\n                wireframe: true,\n                wireframeLinewidth: 8,\n                color: 0x008000,\n                ambient: 0x606060\n            })\n        }\n    },\n    apiMeshTypeKeys = _.keys(apiMeshTypes),\n    skybox = null,\n    skyboxImage = null,\n    skyboxImagePrefix = \"images/background-spacescape_\",\n    skyboxImageSuffix = [\"right1\", \"left2\", \"top3\", \"bottom4\", \"front5\", \"back6\"],\n    skyGeometry = null,\n    skyboxMaterialArray = [],\n    skyboxMaterial = null;\n\n\n\nexport var setCollection = function(config){\n    this.collection = config.collection;\n}\n\nexport var getIntersections = function() {\n    if ($('.background-image canvas').length !== 0) {\n\n        // find the unique intersections for the object based on the position of the mouse\n        vector = new THREE.Vector3();\n        vector.set((window.mouseX / window.innerWidth) * 2 - 1, -(window.mouseY / window.innerHeight) * 2 + 1, 0.5);\n        vector.unproject(camera);\n        raycaster = new THREE.Raycaster();\n        raycaster.set(camera.position, vector.sub(camera.position).normalize());\n        intersects = _.uniq(raycaster.intersectObjects(objects, true), false, function(p) {\n            return p.object.id;\n        });\n\n        // when hovering over items, make them full circles, when hover off, revert them\n        if (intersects.length) {\n            if (typeof activeObjects[intersects[0].object.id] === \"undefined\") {\n                var currentObject = asteroidArray[intersects[0].object.id];\n\n                // increase the size of the asteroid on hover\n                currentObject.mesh.scale.x = 2.5;\n                currentObject.mesh.scale.y = 2.5;\n                currentObject.mesh.scale.z = 2.5;\n\n                //stop the animation on hover\n                currentObject.direction.x = 0;\n                currentObject.direction.y = 0;\n                activeObjects[intersects[0].object.id] = intersects[0];\n\n                // determine the asteroid type and highlight the appropriate navigation element\n                $('.background-image canvas').addClass('active');\n                $('.header-title-container .' + currentObject.data.get('type')).addClass('active');\n            }\n        } else {\n            if (activeObjects.length !== 0) {\n                for (var i in activeObjects) {\n                    // get active object and update scale and 'pause' the animation\n                    var currentObject = asteroidArray[activeObjects[i].object.id];\n\n                    // reset the scale\n                    currentObject.mesh.scale.x = 1;\n                    currentObject.mesh.scale.y = 1;\n                    currentObject.mesh.scale.z = 1;\n\n                    // resume the animation\n                    currentObject.direction.x = _.random(-10, 10) / 1000;\n                    currentObject.direction.y = _.random(-10, 10) / 1000;\n\n                    $('.background-image canvas').removeClass('active');\n                    $('.header-title-container a').removeClass('active');\n\n                    // remove the item from the active hover state array\n                    delete activeObjects[i];\n                }\n            }\n        }\n    }\n}\n\nvar createNewAsteroid = function(config) {\n    var xPosition = _.random(cameraFOVWidth * -1, cameraFOVWidth),\n        yPosition = _.random(cameraFOVHeight * -1, cameraFOVHeight),\n        zPosition = 0,\n        xDirection = _.random(-10, 10) / 1000,\n        yDirection = _.random(-10, 10) / 1000,\n        zDirection = 0,\n        model = config.model;\n\n    var currentMeshType = model.get('type');\n    var currAstroid = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);\n    currAstroid.position.set(xPosition, yPosition, zPosition);\n    currAstroid.receiveShadow = true;\n    currAstroid.castShadow = false;\n\n    return {\n        'id': currAstroid.id,\n        'mesh': currAstroid,\n        'direction': {\n            'x': xDirection,\n            'y': yDirection,\n            'z': zDirection\n        },\n        'attributes': {\n            'positiveXDirection': (xDirection > 0),\n            'positiveYDirection': (yDirection > 0)\n        },\n        'data': model\n    }\n}\n\nvar updateAsteroidsPosition = function() {\n    for (var currentIndex in asteroidArray) {\n        if (asteroidArray[currentIndex].attributes.positiveYDirection) {\n            if ((asteroidArray[currentIndex].mesh.position.y - asteroidInitialScale) > (cameraFOVHeight)) {\n                asteroidArray[currentIndex].mesh.position.y = ((cameraFOVHeight * -1) - asteroidInitialScale);\n            }\n        } else {\n            if ((asteroidArray[currentIndex].mesh.position.y + asteroidInitialScale) < (cameraFOVHeight * -1)) {\n                asteroidArray[currentIndex].mesh.position.y = ((cameraFOVHeight) + asteroidInitialScale);\n            }\n        }\n\n        if (asteroidArray[currentIndex].attributes.positiveXDirection) {\n            if ((asteroidArray[currentIndex].mesh.position.x - asteroidInitialScale) > (cameraFOVWidth)) {\n                asteroidArray[currentIndex].mesh.position.x = ((cameraFOVWidth * -1) - asteroidInitialScale);\n            }\n        } else {\n            if ((asteroidArray[currentIndex].mesh.position.x + asteroidInitialScale) < (cameraFOVWidth * -1)) {\n                asteroidArray[currentIndex].mesh.position.x = ((cameraFOVWidth) + asteroidInitialScale);\n            }\n        }\n\n        asteroidArray[currentIndex].mesh.position.x += asteroidArray[currentIndex].direction.x;\n        asteroidArray[currentIndex].mesh.position.y += asteroidArray[currentIndex].direction.y;\n\n        asteroidArray[currentIndex].mesh.rotation.x += asteroidArray[currentIndex].direction.x;\n        asteroidArray[currentIndex].mesh.rotation.y += asteroidArray[currentIndex].direction.y;\n    }\n}\n\nvar updateSkyboxPosition = function(){\n    skybox.rotation.x += 0.0005;\n    skybox.rotation.y += 0.0005;\n}\n\nvar webglAvailable = function() {\n    try {\n        var canvas = document.createElement('canvas');\n        return !!(window.WebGLRenderingContext && (\n            canvas.getContext('webgl') ||\n            canvas.getContext('experimental-webgl')));\n    } catch (e) {\n        return false;\n    }\n}\n\nexport var renderScene = function() {\n    var that = this;\n\n    if ($('.background-image canvas').length === 0) {\n        scene = new THREE.Scene();\n        //set camera and calculate FOV\n        camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1100);\n        camera.position.set(0, 0, cameraDist);\n        //set render engine and scene\n        //detect the appropriate rendering engine\n        if (webglAvailable()) {\n            renderer = new THREE.WebGLRenderer({\n                alpha: true,\n                antialias: true\n            });\n        } else {\n            renderer = new THREE.CanvasRenderer({\n                alpha: true,\n                antialias: true\n            });\n        }\n\n        updateWindowSize();\n        //renderer.setSize(window.innerWidth, window.innerHeight);\n        renderer.showMapEnabed = true;\n\n        // initialize object to perform world/screen calculations\n        projector = new THREE.Projector();\n\n        //render canvas to the background image\n        $('.background-image').html(renderer.domElement);\n\n        //add lighting\n        // scene.add(new THREE.AmbientLight(0x606060));\n        headlight = new THREE.PointLight(0x606060, 2, 100);\n        headlight.position.copy(camera.position);\n        scene.add(headlight);\n\n        //left / right side of canvas\n        headlight = new THREE.PointLight(0x606060, 2, 100);\n        headlight.position.set(-cameraFOVWidth, camera.position.y, 0);\n        scene.add(headlight);\n\n        headlight = new THREE.PointLight(0x606060, 2, 100);\n        headlight.position.set(cameraFOVWidth, camera.position.y, 0);\n        scene.add(headlight);\n\n        //top and bottom of canvas\n        //left / right side of canvas\n        headlight = new THREE.PointLight(0x606060, 2, 100);\n        headlight.position.set(camera.position.x, -cameraFOVHeight, 0);\n        scene.add(headlight);\n\n        headlight = new THREE.PointLight(0x606060, 2, 100);\n        headlight.position.set(camera.position.x, cameraFOVHeight, 0);\n        scene.add(headlight);\n\n        // add skybox to the scene\n\n        skyGeometry = new THREE.CubeGeometry( 1000, 1000, 1000 );\n        for(skyboxImage in skyboxImageSuffix){\n            skyboxMaterialArray.push( new THREE.MeshBasicMaterial({\n                map: THREE.ImageUtils.loadTexture( skyboxImagePrefix + skyboxImageSuffix[skyboxImage] + \".png\" ),\n                side: THREE.BackSide\n            }));\n        }\n        skyboxMaterial = new THREE.MeshFaceMaterial( skyboxMaterialArray );\n        skybox = new THREE.Mesh( skyGeometry, skyboxMaterial );\n        scene.add( skybox );\n\n        //add asteroids to the scene\n        for (var i = 0; i <= this.collection.length-1; i++) {\n            var currAsteroid = createNewAsteroid({model : this.collection.models[i]});\n            asteroidArray[currAsteroid.id] = currAsteroid;\n            scene.add(currAsteroid.mesh);\n            objects.push(currAsteroid.mesh);\n        }\n\n        //render view for each animation frame\n        var render = function() {\n            requestAnimationFrame(render);\n            updateAsteroidsPosition();\n            updateSkyboxPosition();\n            renderer.render(scene, camera);\n        };\n        render();\n    }\n}\n\nexport var updateWindowSize = function() {\n    sceneWidth = window.innerWidth,\n        sceneHeight = window.innerHeight,\n        sceneAspectRatio = window.innerWidth / window.innerHeight\n\n\n    camera.aspect = sceneAspectRatio;\n    camera.updateProjectionMatrix();\n\n    renderer.setSize(window.innerWidth, window.innerHeight);\n    cameraFOV = camera.fov * Math.PI / 180;\n    cameraFOVHeight = 2 * Math.tan(cameraFOV / 2) * cameraDist;\n    cameraFOVWidth = cameraFOVHeight * sceneAspectRatio;\n    //adjust for half of the screen\n    cameraFOVHeight = cameraFOVHeight / 2;\n    cameraFOVWidth = cameraFOVWidth / 2;\n}\n"
-  ],
-  "sourceRoot": ""
+import $ from 'jquery';
+import _ from 'lodash';
+import THREE from 'three';
+import THREECanvasRenderer from '../../../vendor/threejs/CanvasRenderer';
+
+//number of spheres to generate
+var sphereCount = 20,
+    scene,
+    sceneWidth = window.innerWidth,
+    sceneHeight = window.innerHeight,
+    sceneAspectRatio = (sceneWidth / sceneHeight),
+    camera,
+    cameraDist = 20,
+    cameraFOV,
+    cameraFOVWidth,
+    cameraFOVHeight,
+    headlight,
+    renderer,
+    projector,
+    objects = [],
+    activeObjects = {},
+    asteroidArray = [],
+    asteroidInitialScale = 0.5,
+    vector = new THREE.Vector3(),
+    raycaster = new THREE.Raycaster(),
+    dir = new THREE.Vector3(),
+    intersects,
+    currentLines = [],
+    currLine,
+    currLineGeometry,
+    currLineMaterial,
+    apiMeshTypes = {
+        'thoughts': {
+            'name': '',
+            'material': new THREE.MeshLambertMaterial({
+                wireframe: true,
+                wireframeLinewidth: 8,
+                color: 0x3b5998,
+                ambient: 0x606060
+            })
+        },
+        'experiments': {
+            'name': '',
+            'material': new THREE.MeshLambertMaterial({
+                wireframe: true,
+                wireframeLinewidth: 8,
+                color: 0xab1b1c,
+                ambient: 0x606060
+            })
+        },
+        'roy-martin': {
+            'name': '',
+            'material': new THREE.MeshLambertMaterial({
+                wireframe: true,
+                wireframeLinewidth: 8,
+                color: 0x008000,
+                ambient: 0x606060
+            })
+        }
+    },
+    apiMeshTypeKeys = _.keys(apiMeshTypes),
+    skybox = null,
+    skyboxImage = null,
+    skyboxImagePrefix = "images/background-spacescape_",
+    skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
+    skyGeometry = null,
+    skyboxMaterialArray = [],
+    skyboxMaterial = null;
+
+
+
+export var setCollection = function(config){
+    this.collection = config.collection;
+}
+
+export var getIntersections = function() {
+    if ($('.background-image canvas').length !== 0) {
+
+        // find the unique intersections for the object based on the position of the mouse
+        vector = new THREE.Vector3();
+        vector.set((window.mouseX / window.innerWidth) * 2 - 1, -(window.mouseY / window.innerHeight) * 2 + 1, 0.5);
+        vector.unproject(camera);
+        raycaster = new THREE.Raycaster();
+        raycaster.set(camera.position, vector.sub(camera.position).normalize());
+        intersects = _.uniq(raycaster.intersectObjects(objects, true), false, function(p) {
+            return p.object.id;
+        });
+
+        // when hovering over items, make them full circles, when hover off, revert them
+        if (intersects.length) {
+            if (typeof activeObjects[intersects[0].object.id] === "undefined") {
+                var currentObject = asteroidArray[intersects[0].object.id];
+
+                // increase the size of the asteroid on hover
+                currentObject.mesh.scale.x = 2.5;
+                currentObject.mesh.scale.y = 2.5;
+                currentObject.mesh.scale.z = 2.5;
+
+                //stop the animation on hover
+                currentObject.direction.x = 0;
+                currentObject.direction.y = 0;
+                activeObjects[intersects[0].object.id] = intersects[0];
+
+                // determine the asteroid type and highlight the appropriate navigation element
+                $('.background-image canvas').addClass('active');
+                $('.header-title-container .' + currentObject.data.get('type')).addClass('active');
+            }
+        } else {
+            if (activeObjects.length !== 0) {
+                for (var i in activeObjects) {
+                    // get active object and update scale and 'pause' the animation
+                    var currentObject = asteroidArray[activeObjects[i].object.id];
+
+                    // reset the scale
+                    currentObject.mesh.scale.x = 1;
+                    currentObject.mesh.scale.y = 1;
+                    currentObject.mesh.scale.z = 1;
+
+                    // resume the animation
+                    currentObject.direction.x = _.random(-10, 10) / 1000;
+                    currentObject.direction.y = _.random(-10, 10) / 1000;
+
+                    $('.background-image canvas').removeClass('active');
+                    $('.header-title-container a').removeClass('active');
+
+                    // remove the item from the active hover state array
+                    delete activeObjects[i];
+                }
+            }
+        }
+    }
+}
+
+var createNewAsteroid = function(config) {
+    var xPosition = _.random(cameraFOVWidth * -1, cameraFOVWidth),
+        yPosition = _.random(cameraFOVHeight * -1, cameraFOVHeight),
+        zPosition = 0,
+        xDirection = _.random(-10, 10) / 1000,
+        yDirection = _.random(-10, 10) / 1000,
+        zDirection = 0,
+        model = config.model;
+
+    var currentMeshType = model.get('type');
+    var currAstroid = new THREE.Mesh(new THREE.SphereGeometry(asteroidInitialScale, 5, 5), apiMeshTypes[currentMeshType].material);
+    currAstroid.position.set(xPosition, yPosition, zPosition);
+    currAstroid.receiveShadow = true;
+    currAstroid.castShadow = false;
+
+    return {
+        'id': currAstroid.id,
+        'mesh': currAstroid,
+        'direction': {
+            'x': xDirection,
+            'y': yDirection,
+            'z': zDirection
+        },
+        'attributes': {
+            'positiveXDirection': (xDirection > 0),
+            'positiveYDirection': (yDirection > 0)
+        },
+        'data': model
+    }
+}
+
+var updateAsteroidsPosition = function() {
+    for (var currentIndex in asteroidArray) {
+        if (asteroidArray[currentIndex].attributes.positiveYDirection) {
+            if ((asteroidArray[currentIndex].mesh.position.y - asteroidInitialScale) > (cameraFOVHeight)) {
+                asteroidArray[currentIndex].mesh.position.y = ((cameraFOVHeight * -1) - asteroidInitialScale);
+            }
+        } else {
+            if ((asteroidArray[currentIndex].mesh.position.y + asteroidInitialScale) < (cameraFOVHeight * -1)) {
+                asteroidArray[currentIndex].mesh.position.y = ((cameraFOVHeight) + asteroidInitialScale);
+            }
+        }
+
+        if (asteroidArray[currentIndex].attributes.positiveXDirection) {
+            if ((asteroidArray[currentIndex].mesh.position.x - asteroidInitialScale) > (cameraFOVWidth)) {
+                asteroidArray[currentIndex].mesh.position.x = ((cameraFOVWidth * -1) - asteroidInitialScale);
+            }
+        } else {
+            if ((asteroidArray[currentIndex].mesh.position.x + asteroidInitialScale) < (cameraFOVWidth * -1)) {
+                asteroidArray[currentIndex].mesh.position.x = ((cameraFOVWidth) + asteroidInitialScale);
+            }
+        }
+
+        asteroidArray[currentIndex].mesh.position.x += asteroidArray[currentIndex].direction.x;
+        asteroidArray[currentIndex].mesh.position.y += asteroidArray[currentIndex].direction.y;
+
+        asteroidArray[currentIndex].mesh.rotation.x += asteroidArray[currentIndex].direction.x;
+        asteroidArray[currentIndex].mesh.rotation.y += asteroidArray[currentIndex].direction.y;
+    }
+}
+
+var updateSkyboxPosition = function(){
+    skybox.rotation.x += 0.0005;
+    skybox.rotation.y += 0.0005;
+}
+
+var webglAvailable = function() {
+    try {
+        var canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && (
+            canvas.getContext('webgl') ||
+            canvas.getContext('experimental-webgl')));
+    } catch (e) {
+        return false;
+    }
+}
+
+export var renderScene = function() {
+    var that = this;
+
+    if ($('.background-image canvas').length === 0) {
+        scene = new THREE.Scene();
+        //set camera and calculate FOV
+        camera = new THREE.PerspectiveCamera(45, sceneAspectRatio, 1, 1100);
+        camera.position.set(0, 0, cameraDist);
+        //set render engine and scene
+        //detect the appropriate rendering engine
+        if (webglAvailable()) {
+            renderer = new THREE.WebGLRenderer({
+                alpha: true,
+                antialias: true
+            });
+        } else {
+            renderer = new THREE.CanvasRenderer({
+                alpha: true,
+                antialias: true
+            });
+        }
+
+        updateWindowSize();
+        //renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.showMapEnabed = true;
+
+        // initialize object to perform world/screen calculations
+        projector = new THREE.Projector();
+
+        //render canvas to the background image
+        $('.background-image').html(renderer.domElement);
+
+        //add lighting
+        // scene.add(new THREE.AmbientLight(0x606060));
+        headlight = new THREE.PointLight(0x606060, 2, 100);
+        headlight.position.copy(camera.position);
+        scene.add(headlight);
+
+        //left / right side of canvas
+        headlight = new THREE.PointLight(0x606060, 2, 100);
+        headlight.position.set(-cameraFOVWidth, camera.position.y, 0);
+        scene.add(headlight);
+
+        headlight = new THREE.PointLight(0x606060, 2, 100);
+        headlight.position.set(cameraFOVWidth, camera.position.y, 0);
+        scene.add(headlight);
+
+        //top and bottom of canvas
+        //left / right side of canvas
+        headlight = new THREE.PointLight(0x606060, 2, 100);
+        headlight.position.set(camera.position.x, -cameraFOVHeight, 0);
+        scene.add(headlight);
+
+        headlight = new THREE.PointLight(0x606060, 2, 100);
+        headlight.position.set(camera.position.x, cameraFOVHeight, 0);
+        scene.add(headlight);
+
+        // add skybox to the scene
+
+        skyGeometry = new THREE.CubeGeometry( 1000, 1000, 1000 );
+        for(skyboxImage in skyboxImageSuffix){
+            skyboxMaterialArray.push( new THREE.MeshBasicMaterial({
+                map: THREE.ImageUtils.loadTexture( skyboxImagePrefix + skyboxImageSuffix[skyboxImage] + ".png" ),
+                side: THREE.BackSide
+            }));
+        }
+        skyboxMaterial = new THREE.MeshFaceMaterial( skyboxMaterialArray );
+        skybox = new THREE.Mesh( skyGeometry, skyboxMaterial );
+        scene.add( skybox );
+
+        //add asteroids to the scene
+        for (var i = 0; i <= this.collection.length-1; i++) {
+            var currAsteroid = createNewAsteroid({model : this.collection.models[i]});
+            asteroidArray[currAsteroid.id] = currAsteroid;
+            scene.add(currAsteroid.mesh);
+            objects.push(currAsteroid.mesh);
+        }
+
+        //render view for each animation frame
+        var render = function() {
+            requestAnimationFrame(render);
+            updateAsteroidsPosition();
+            updateSkyboxPosition();
+            renderer.render(scene, camera);
+        };
+        render();
+    }
+}
+
+export var updateWindowSize = function() {
+    sceneWidth = window.innerWidth,
+        sceneHeight = window.innerHeight,
+        sceneAspectRatio = window.innerWidth / window.innerHeight
+
+
+    camera.aspect = sceneAspectRatio;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    cameraFOV = camera.fov * Math.PI / 180;
+    cameraFOVHeight = 2 * Math.tan(cameraFOV / 2) * cameraDist;
+    cameraFOVWidth = cameraFOVHeight * sceneAspectRatio;
+    //adjust for half of the screen
+    cameraFOVHeight = cameraFOVHeight / 2;
+    cameraFOVWidth = cameraFOVWidth / 2;
 }

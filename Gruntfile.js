@@ -13,9 +13,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
-    // load exorcist for source map
-    require('exorcist')(grunt);
-
+    var exorcist = require('exorcist');
     var stream = require('stream');
 
     grunt.loadNpmTasks('css-sprite');
@@ -31,7 +29,7 @@ module.exports = function(grunt) {
     };
 
     var createSourceMap = function(err, src, next) {
-        var mapfile = grunt.template.process('<%= folders.output %>/<%= filenames.js %>.map');
+        var mapfile = grunt.template.process('.tmp/scripts/main.js.map');
         var s = new stream.Readable();
         s._read = function noop() {};
         s.push(src);
@@ -369,6 +367,7 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     debug: true,
+                    // postBundleCB: createSourceMap,
                     transform: [
                         ["hbsfy", {}],
                         ["babelify", {
@@ -376,14 +375,8 @@ module.exports = function(grunt) {
                         }]
                     ]
                 },
-                js: {
-                    src: ['<%= yeoman.app %>/scripts/main.js', '<%= yeoman.app %>/scripts/**/*.hbs'],
-                    dest: '.tmp/scripts/main.js'
-                },
-                files: {
-                    ".tmp/scripts/main.js": "<%= yeoman.app %>/scripts/main.js",
-                },
-                postBundleCB: createSourceMap
+                src: ['<%= yeoman.app %>/scripts/main.js', '<%= yeoman.app %>/scripts/**/*.hbs'],
+                dest: '.tmp/scripts/main.js'
             },
             dist: {
                 options: {

@@ -3,9 +3,9 @@ import _ from 'lodash';
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 
-import template from '../templates/AboutView.hbs';
+import template from '../templates/aboutView.hbs';
 
-export class AboutView extends Marionette.ItemView {
+export default class AboutView extends Marionette.ItemView {
     get template() {
         return template;
     }

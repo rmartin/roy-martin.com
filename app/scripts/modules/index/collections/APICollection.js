@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
-import {APIModel} from '../models/APIModel.js';
+import APIModel from '../models/APIModel.js';
 
-export class APICollection extends Backbone.Collection{
+export default class APICollection extends Backbone.Collection{
     get model(){
         return APIModel;
     }

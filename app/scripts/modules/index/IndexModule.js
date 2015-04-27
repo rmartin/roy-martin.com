@@ -5,11 +5,11 @@ import Marionette from 'backbone.marionette';
 import RadioShim from '../../vendor/radio.shim.js';
 import Radio from 'backbone.radio';
 
-import {IndexRouter} from './IndexRouter.js';
-import {IndexController} from './IndexController.js';
+import IndexRouter from './IndexRouter.js';
+import IndexController from './IndexController.js';
 
 
-export class IndexModule {
+export default class IndexModule {
     constructor(){
         this.start();
     }

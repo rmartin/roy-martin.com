@@ -6,10 +6,10 @@ import RadioShim from '../../../vendor/radio.shim.js';
 import Radio from 'backbone.radio';
 
 import APICollection from '../collections/APICollection.js';
-import template from '../templates/IndexView.hbs';
+import template from '../templates/indexView.hbs';
 import TimelineLite from 'gsap';
 
-export class IndexView extends Marionette.ItemView {
+export default class IndexView extends Marionette.ItemView {
     get template() {
         return template
     }

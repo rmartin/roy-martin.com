@@ -5,11 +5,11 @@ import Marionette from 'backbone.marionette';
 import RadioShim from '../../vendor/radio.shim.js';
 import Radio from 'backbone.radio';
 
-import {AboutController} from './AboutController.js';
-import {AboutRouter} from './AboutRouter.js';
+import AboutController from './AboutController.js';
+import AboutRouter from './AboutRouter.js';
 
 
-export class AboutModule {
+export default class AboutModule {
     constructor(){
         this.start();
     }

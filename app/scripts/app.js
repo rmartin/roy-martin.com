@@ -5,7 +5,7 @@ Backbone.$ = $;
 var Marionette = require('backbone.marionette');
 
 // app bootstrap
-export var app = new Marionette.Application();
+let app = new Marionette.Application();
 app.addRegions({
     main: '#main-content'
 });
@@ -15,3 +15,5 @@ app.on('start', function() {
         Backbone.history.start();
     }
 });
+
+export default app; 

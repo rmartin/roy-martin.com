@@ -1,8 +1,8 @@
 import Marionette from 'backbone.marionette';
-import {app} from '../../app';
-import {AboutView} from './views/AboutView.js';
+import app from '../../app';
+import AboutView from './views/AboutView.js';
 
-export class AboutController {
+export default class AboutController {
     about() {
         //render main template
         var aboutView = new AboutView();

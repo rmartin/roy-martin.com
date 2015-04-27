@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
 
-export class APIModel extends Backbone.Model{
+export default class APIModel extends Backbone.Model{
 
 }

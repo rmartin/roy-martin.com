@@ -1,4 +1,3 @@
-import Marionette from 'backbone.marionette';
 import app from '../../app';
 import APICollection from './collections/APICollection.js';
 import IndexView from './views/IndexView.js';

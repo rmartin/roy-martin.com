@@ -1,10 +1,3 @@
-import $ from 'jquery';
-import _ from 'lodash';
-import Backbone from 'backbone';
-import Marionette from 'backbone.marionette';
-import RadioShim from '../../../vendor/radio.shim.js';
-import Radio from 'backbone.radio';
-
 import APICollection from '../collections/APICollection.js';
 import template from '../templates/indexView.hbs';
 import TimelineLite from 'gsap';
@@ -23,7 +16,7 @@ export default class IndexView extends Marionette.ItemView {
         this.visualizer.setCollection({
             collection: this.collection
         })
-        this.visualizerChannel = Backbone.Radio.channel('visualizer');
+        this.visualizerChannel = Radio.channel('visualizer');
 
         this.visualizerChannel.on('visualizer:mouseMove', function() {
             this.getIntersections();

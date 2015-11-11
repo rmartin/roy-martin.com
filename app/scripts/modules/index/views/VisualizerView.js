@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import _ from 'lodash';
-import THREE from 'three';
 import THREECanvasRenderer from '../../../vendor/threejs/CanvasRenderer';
 
 //number of spheres to generate
@@ -61,7 +58,7 @@ var sphereCount = 20,
     apiMeshTypeKeys = _.keys(apiMeshTypes),
     skybox = null,
     skyboxImage = null,
-    skyboxImagePrefix = "images/background-spacescape_",
+    skyboxImagePrefix = "assets/images/background-spacescape_",
     skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
     skyGeometry = null,
     skyboxMaterialArray = [],

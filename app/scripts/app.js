@@ -1,9 +1,3 @@
-// Vendors
-var $ = require('jquery');
-var Backbone = require('backbone');
-Backbone.$ = $;
-var Marionette = require('backbone.marionette');
-
 // app bootstrap
 let app = new Marionette.Application();
 app.addRegions({
@@ -16,4 +10,4 @@ app.on('start', function() {
     }
 });
 
-export default app; 
+export default app;

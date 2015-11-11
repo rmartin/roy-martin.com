@@ -1,10 +1,3 @@
-import $ from 'jquery';
-import _ from 'lodash';
-import Backbone from 'backbone';
-import Marionette from 'backbone.marionette';
-import RadioShim from '../../vendor/radio.shim.js';
-import Radio from 'backbone.radio';
-
 import IndexRouter from './IndexRouter.js';
 import IndexController from './IndexController.js';
 

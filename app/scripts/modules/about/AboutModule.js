@@ -1,10 +1,3 @@
-import $ from 'jquery';
-import _ from 'lodash';
-import Backbone from 'backbone';
-import Marionette from 'backbone.marionette';
-import RadioShim from '../../vendor/radio.shim.js';
-import Radio from 'backbone.radio';
-
 import AboutController from './AboutController.js';
 import AboutRouter from './AboutRouter.js';
 
@@ -32,7 +25,7 @@ export default class AboutModule {
 
     startListeners(){
         //trigger a resize event for all views
-        var visualizerChannel = Backbone.Radio.channel('about');
+        var visualizerChannel = Radio.channel('about');
     }
 
     stopMediator(){

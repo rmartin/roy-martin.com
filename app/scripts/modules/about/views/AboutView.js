@@ -1,8 +1,3 @@
-import $ from 'jquery';
-import _ from 'lodash';
-import Backbone from 'backbone';
-import Marionette from 'backbone.marionette';
-
 import template from '../templates/aboutView.hbs';
 
 export default class AboutView extends Marionette.ItemView {

@@ -1,6 +1,9 @@
 body.indexView {
 
     background: #000;
+    a, h1, h2, h3, h4 ,h5 {
+      color: #5e5e5e;
+    }
 
     .index-header-container{
         @include vertical-align;

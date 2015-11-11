@@ -2,21 +2,17 @@
 $row-width: 72.500em;
 /**
 ----------------------------------------------------------------------------------------
-Vendor level styling
-----------------------------------------------------------------------------------------
-*/
-$fi-path: "../bower_components/foundation-icon-fonts";
-@import "../bower_components/foundation/scss/normalize";
-@import "../bower_components/foundation/scss/foundation";
-@import "../bower_components/foundation-icon-fonts/_foundation-icons";
-/**
-----------------------------------------------------------------------------------------
 Base level styling
 ----------------------------------------------------------------------------------------
 */
-@import "base/variables";
-@import "base/mixins";
-@import "base/reset";
+@import "base/fonts";
+@import "base/variable";
+@import "base/settings";
+@import "node_modules/foundation-sites/scss/foundation/components/global";
+
+@import "helper/function";
+@import "helper/mixin";
+@import "helper/class";
 /**
 ----------------------------------------------------------------------------------------
 Component level styling

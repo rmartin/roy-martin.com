@@ -1,4 +1,3 @@
-import Backbone from 'backbone';
 import APIModel from '../models/APIModel.js';
 
 export default class APICollection extends Backbone.Collection{

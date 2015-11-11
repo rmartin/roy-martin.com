@@ -1,4 +1,3 @@
-import Marionette from 'backbone.marionette';
 import app from '../../app';
 import AboutView from './views/AboutView.js';
 

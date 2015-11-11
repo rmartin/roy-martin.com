@@ -1,4 +1,4 @@
-import template from '../templates/aboutView.hbs';
+import template from 'modules/about/templates/aboutView.hbs';
 
 export default class AboutView extends Marionette.ItemView {
     get template() {

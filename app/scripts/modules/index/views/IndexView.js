@@ -1,5 +1,5 @@
 import APICollection from '../collections/APICollection.js';
-import template from 'modules/index/templates/indexView.hbs';
+import template from '../templates/indexView.hbs';
 import TimelineLite from 'gsap';
 
 export default class IndexView extends Marionette.ItemView {

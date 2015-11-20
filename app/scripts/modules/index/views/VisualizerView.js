@@ -62,7 +62,12 @@ var sphereCount = 20,
     skyboxImageSuffix = ["right1", "left2", "top3", "bottom4", "front5", "back6"],
     skyGeometry = null,
     skyboxMaterialArray = [],
-    skyboxMaterial = null;
+    skyboxMaterial = null,
+    lineMaterial = new THREE.LineBasicMaterial({
+        color: 0xffffff
+    }),
+    lineGeo = new THREE.Geometry(),
+    line;
 
 
 
@@ -98,6 +103,14 @@ export var getIntersections = function() {
                 currentObject.direction.y = 0;
                 activeObjects[intersects[0].object.id] = intersects[0];
 
+                // draw a line originating from the asteroid to display the text
+                lineGeo = new THREE.Geometry();
+                lineGeo.vertices.push(new THREE.Vector3(currentObject.mesh.position.x, currentObject.mesh.position.y, currentObject.mesh.position.z));
+                lineGeo.vertices.push(new THREE.Vector3(currentObject.mesh.position.x+3, currentObject.mesh.position.y+2, currentObject.mesh.position.z));
+
+                line = new THREE.Line(lineGeo, lineMaterial);
+                scene.add(line);
+
                 // determine the asteroid type and highlight the appropriate navigation element
                 $('.background-image canvas').addClass('active');
                 $('.header-title-container .' + currentObject.data.get('type')).addClass('active');
@@ -119,6 +132,8 @@ export var getIntersections = function() {
 
                     $('.background-image canvas').removeClass('active');
                     $('.header-title-container a').removeClass('active');
+
+                    scene.remove(line);
 
                     // remove the item from the active hover state array
                     delete activeObjects[i];
@@ -282,6 +297,9 @@ export var renderScene = function() {
             scene.add(currAsteroid.mesh);
             objects.push(currAsteroid.mesh);
         }
+
+        // line = new THREE.Line(lineGeo, lineMaterial);
+        // scene.add(line);
 
         //render view for each animation frame
         var render = function() {

@@ -1,0 +1,14 @@
+// 1. Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+@import '~bulma/bulma';
+
+// social media fonts
+$simple-line-font-path        : "/static/fonts/";
+// $simple-line-icon-prefix      : "icon-";
+@import "~simple-line-icons/scss/simple-line-icons";
+
+
+body {
+    margin: 0;
+}

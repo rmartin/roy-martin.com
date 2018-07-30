@@ -1,9 +1,8 @@
+# Project dependencies
+.cache
 node_modules
-dist
-test/temp
-.sass-cache
-app/bower_components
-.tmp
-.env
-test/bower_components/
-.env
+yarn-error.log
+
+# Build directory
+/public
+.DS_Store

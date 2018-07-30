@@ -1,0 +1,85 @@
+body {
+    font-family: "Copernicus", georgia, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "HarmoniaSansPro-Black", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px;
+}
+
+.roy {
+    background: url('/static/img/roy-martin.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.roy-overlay {
+    background-color: rgba(0, 0, 0, 0.20);
+    height: 100vh;
+    width: 100vw;
+}
+
+.about {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 30vh 100px 0 100px;
+    color: #fff;
+    
+    a, a:visited, a:hover, a:active {
+        color: #fff;
+    }
+
+
+    h1 {
+        font-size: 5rem;
+    }
+    .simple-icon {
+        font-family: "simple-line-icons";
+        margin-right: 3px;
+    }
+    .link-container {
+        margin-top: 3px;
+        .link {
+            display: inline-block;
+            margin-right: 22px;
+        }
+    }
+}
+
+.hero {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-home {
+    font-size: 7em;
+    text-transform: uppercase;
+}
+
+.hero-home-large {
+    font-size: 10em;
+    font-weight: normal;
+    letter-spacing: -10px;
+    color: black;
+}

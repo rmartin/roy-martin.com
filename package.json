@@ -12,6 +12,7 @@
     "react-full-page": "^0.1.5",
     "react-helmet": "^5.2.0",
     "react-typewrite": "^2.1.0",
+    "serve": "^9.4.0",
     "simple-line-icons": "^2.4.1",
     "terminal-in-react": "^4.3.0",
     "typeit": "^5.10.2"

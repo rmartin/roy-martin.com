@@ -34,7 +34,7 @@ class IndexPage extends Component {
                 loopDelay={5000}
                 breakLines={false}
                 startDelete={true}
-                speed={40}
+                speed={10}
               />
             </h1>
           </div>

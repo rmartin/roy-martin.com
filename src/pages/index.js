@@ -28,8 +28,8 @@ class IndexPage extends Component {
           <div className="slide">
             <h1 className="hero-home-large">
               <Type
-                // strings={['echo \'Hello World.\'', 'node start-roy-martin.js', 'Starting roy-martin.com', 'Loading Dependencies', 'Reticulating Splines']}
-                strings={['Hello World.']}
+                strings={['echo \'Hello World.\'', 'node start-roy-martin.js', 'Starting roy-martin.com', 'Loading Dependencies', 'Reticulating Splines']}
+                // strings={['Hello World.']}
                 loop={false}
                 loopDelay={5000}
                 breakLines={false}

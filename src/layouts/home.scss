@@ -23,7 +23,7 @@ h6 {
     background: url('/assets/img/roy-martin-headshot.jpg');
     background-size: cover;
     position: absolute;
-    background-position: center bottom;
+    background-position: 60% 100%;
     top: 0;
     left: 0;
     height: 100vh;
@@ -41,7 +41,7 @@ h6 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 50vh 100px 0 10vw;
+    padding: 50vh 100px 0 55vw;
     color: #fff;
     
     a, a:visited, a:hover, a:active {

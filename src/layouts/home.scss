@@ -20,13 +20,15 @@ h6 {
 }
 
 .roy {
-    background: url('/assets/img/roy-martin.jpg');
+    background: url('/assets/img/roy-martin-headshot.jpg');
     background-size: cover;
     position: absolute;
-    top: 100vh;
+    background-position: center bottom;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
+    font-weight: bold;
 }
 
 .roy-overlay {
@@ -39,7 +41,7 @@ h6 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 30vh 100px 0 100px;
+    padding: 50vh 100px 0 10vw;
     color: #fff;
     
     a, a:visited, a:hover, a:active {

@@ -15,7 +15,6 @@ class IndexPage extends Component {
               <div className="link"><a href="https://www.github.com/rmartin" target="_blank"><i className="simple-icon icon-social-github"></i><span>Github</span></a></div>
               <div className="link"><a href="https://www.youtube.com/channel/UCo01NdFAR0cfIXSaB2IlzDg" target="_blank"><i className="simple-icon icon-social-youtube"></i><span>YouTube</span></a></div>
               <div className="link"><a href="https://codepen.io/roymartin/" target="_blank"><i className="simple-icon icon-note"></i><span>CodePen</span></a></div>
-              <div className="link"><a href="https://www.instagram.com/roycmartin/" target="_blank"><i className="simple-icon icon-social-instagram"></i><span>Instagram</span></a></div>
             </div>
           </div>
         </div>

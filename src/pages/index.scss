@@ -1,0 +1,62 @@
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    
+    .container{
+        max-width: 90vw;
+
+        h1 {
+            font-size: calc((100px + 0.5vh) + 1.5vw);
+            text-align: center;
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .link-container {
+            margin-top: 1.5em;
+            text-align: center;
+
+            i {
+                text-decoration: none;
+            }
+
+            .link {
+                display: inline-block;
+                margin: 0 22px 0 0;
+            }
+
+            span{
+                padding-left: 10px;
+            }
+        }
+    }   
+}
+
+.intro:before{
+    background-image: url('/assets/img/roy-martin-headshot-mobile.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100vw;
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.2;
+}
+
+
+@media screen and (min-width: 60em) {
+    .intro:before {
+        background-image: url('/assets/img/roy-martin-headshot.jpg');
+        background-position: 50% 50%;
+    }
+    
+}

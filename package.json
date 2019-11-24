@@ -1,22 +1,24 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "roy-martin.com",
+  "description": "Roy Martin's Personal Site",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Roy Martin",
   "dependencies": {
-    "bulma": "^0.7.5",
-    "gatsby": "^1.9.279",
-    "gatsby-link": "^1.6.46",
-    "gatsby-plugin-google-analytics": "^1.0.31",
-    "gatsby-plugin-react-helmet": "^2.0.11",
-    "gatsby-plugin-sass": "^1.0.26",
+    "bulma": "^0.8.0",
+    "gatsby": "^2.18.2",
+    "gatsby-link": "^2.2.24",
+    "gatsby-plugin-google-analytics": "^2.1.28",
+    "gatsby-plugin-react-helmet": "^3.1.15",
+    "gatsby-plugin-sass": "^2.1.23",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-full-page": "^0.1.7",
     "react-helmet": "^5.2.1",
-    "react-typewrite": "^2.1.0",
-    "serve": "^9.6.0",
+    "serve": "^11.2.0",
     "simple-line-icons": "^2.4.1",
     "terminal-in-react": "^4.3.1",
-    "typeit": "^5.10.7"
+    "typeit": "^6.1.1"
   },
   "keywords": [
     "gatsby"

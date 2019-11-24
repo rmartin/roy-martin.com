@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import './fonts.css'
 // import Fonts from 'fonts'
 
 const Header = ({ siteTitle }) => (

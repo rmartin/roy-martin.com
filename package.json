@@ -5,11 +5,11 @@
   "author": "Roy Martin",
   "dependencies": {
     "bulma": "^0.8.0",
-    "gatsby": "^2.18.2",
+    "gatsby": "^5.3.3",
     "gatsby-link": "^2.2.24",
     "gatsby-plugin-google-analytics": "^2.1.28",
     "gatsby-plugin-react-helmet": "^3.1.15",
-    "gatsby-plugin-sass": "^2.1.23",
+    "gatsby-plugin-sass": "^6.3.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

@@ -5,7 +5,7 @@
   "author": "Roy Martin",
   "dependencies": {
     "bulma": "^0.8.0",
-    "gatsby": "^2.18.2",
+    "gatsby": "^2.32.13",
     "gatsby-link": "^2.2.24",
     "gatsby-plugin-google-analytics": "^2.1.28",
     "gatsby-plugin-react-helmet": "^3.1.15",

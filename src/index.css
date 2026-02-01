@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-accent: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000;
+}
+
+body {
+  @apply antialiased;
+  background: transparent;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl;
+}
+
+.glass-light {
+  @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl;
+}
+
+.dark .glass-light {
+  @apply bg-neutral-900/70 border-neutral-700/50;
+}
